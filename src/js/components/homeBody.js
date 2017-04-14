@@ -22,11 +22,8 @@ class HomeBody extends React.Component {
                                 <br />
                                 <h5>Catch the latest gists from over 74 News Agents accross the world! With gistMe you are a news man. It's Adventure, It's Awesome, It's Simple!</h5>
                             </div>
-                            <div className="buttons">
-                                <button className="btn btn-fill btn-neutral">
-                                  To Continue <Login />
-                                </button>
-                            </div>
+                            <Login />
+                           
                         </div>
                     </div>
                 </div>
