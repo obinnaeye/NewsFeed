@@ -1,18 +1,22 @@
 import React from 'react';
+import Login from './auth';
+import NavBar from './navBar';
 
-class Header extends React.Component {
+class App extends React.Component {
 
   signOut() {
     console.log('Footer')
   }
+  
   render() {
     return (
       <div className="header">
-        Header
+        <NavBar />
+        <Login />
       </div>
     );
   }
 }
 
 
-module.exports = Header;
+module.exports = App;

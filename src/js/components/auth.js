@@ -32,7 +32,7 @@ class Login extends React.Component {
           <FontAwesome
             name="fa fa-google-plus"
           />
-          <span> Login with Google+</span>
+          <span> Login</span>
         </GoogleLogin>
         <a href="#" onClick={this.signOut.bind(this)}>Sign out</a>
       </div>
