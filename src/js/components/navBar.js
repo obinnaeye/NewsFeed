@@ -1,4 +1,5 @@
 import React from 'react';
+import Logout from './logout'
 
 class Navbar extends React.Component {
 
@@ -25,16 +26,13 @@ class Navbar extends React.Component {
                   <li><a href="#">Page 2</a></li>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
-                  <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                  <Logout />
                   <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
               </div>
             </nav>
       
-            <div className="container">
-              <h3>Right Aligned Navbar</h3>
-              <p>The .navbar-right className is used to right-align navigation bar buttons.</p>
-            </div>
+            
          </div>
     );
   }

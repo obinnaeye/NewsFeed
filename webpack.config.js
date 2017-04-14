@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   context: path.join(__dirname, 'src'),
   devtool: debug ? 'inline-sourcemap' : null,
-  entry: './js/main.js',
+  entry: path.resolve(__dirname, 'src', 'js', 'pages', 'home.js'),
   module: {
     loaders: [
       {
@@ -17,6 +17,10 @@ module.exports = {
           plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
         },
       },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass'],
+      }
     ],
   },
   output: {

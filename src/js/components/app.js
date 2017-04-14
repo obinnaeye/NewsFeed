@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import Login from './auth';
 import NavBar from './navBar';
 
@@ -19,4 +19,4 @@ class App extends React.Component {
 }
 
 
-module.exports = App;
+module.exports = App;*/
