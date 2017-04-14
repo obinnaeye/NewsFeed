@@ -7,7 +7,7 @@ module.exports = {
   devtool: debug ? 'inline-sourcemap' : null,
   entry: path.resolve(__dirname, 'src', 'js', 'pages', 'home.js'),
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
@@ -17,11 +17,9 @@ module.exports = {
           plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
         },
       },
-      {
-        test: /\.scss$/,
-        loaders: ['style', 'css', 'sass'],
-      }
-    ],
+      {test: /\.scss$/, use: ['style', 'css', 'sass'],}
+      
+    ]
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -33,3 +31,4 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
   ],
 };
+
