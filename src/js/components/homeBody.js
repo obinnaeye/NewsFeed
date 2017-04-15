@@ -12,9 +12,9 @@ class HomeBody extends React.Component {
                 <div className= "container">
                     <div className="row">
                         <div className="col-md-5 hidden-xs">
-                            /*<div className="parallax-image">
+                            <div className="parallax-image">
                                 <img class="phone" src="img/screen696x696.jpeg" styles="margin-top: 20px"/>
-                            </div>*/
+                            </div>
                         </div>
                         <div className="col-md-6 col-md-offset-1">
                             <div className="description">

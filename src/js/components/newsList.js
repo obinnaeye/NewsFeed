@@ -34,7 +34,7 @@ export default class NewsList extends React.Component {
     const sortby = this.state.sortby;
     axios(`news-site?category=${category}&sortby=${sortby}`).then((data) => {
       news = data.articles[0];
-      return data;
+      console.log(news);
     });
 
     const NewsComponents = news.map((item) => {
