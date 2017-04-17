@@ -12,11 +12,13 @@ class SearchBar extends React.Component {
   constructor(){
     super();
     this.state ={
-      source : []
-    }
-    this.getSource =this.getSource.bind(this)
+      source : [],
+      currentValue : ''
+    };
+    this.getSource =this.getSource.bind(this);
   }
- getSource() {
+  
+  getSource() {
    let options = [];
   axios(`https://newsapi.org/v1/sources?apiKey=213327409d384371851777e7c7f78dfe`).then((data) => {
     const source = data.data.sources;
@@ -33,6 +35,10 @@ class SearchBar extends React.Component {
     this.getSource();
   }
   
+  getValue(value){
+    this.setState({currentValue: value});
+  }
+  
   
   render() {
     return(
@@ -40,9 +46,10 @@ class SearchBar extends React.Component {
         <Select
         name="form-field-name"
         options={this.state.source}
+        value = {this.state.currentValue}
         class="search-bar"
-        onChange={this.getArticles}
-        clearable="false"
+        onChange={this.getValue.bind(this)}
+        clearable={true}
         />
         <span><button> Search Headlines </button></span>
       </div>
