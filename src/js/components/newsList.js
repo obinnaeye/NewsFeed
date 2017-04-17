@@ -9,8 +9,7 @@ export default class NewsList extends React.Component {
   constructor() {
     super();
     this.state = {
-      source : "cnn",
-      sortby : "latest"
+      articles : []
     };
   }
 
@@ -23,33 +22,23 @@ export default class NewsList extends React.Component {
   }
   
   getNewsObj() {
-    this.setState(
-      NewsStore.getNewsObj
-    );
+    this.setState({
+      articles : NewsStore.getArticles
+    });
   }
 
   render() {
-    let news;
-    const source = this.state.source;
-    const sortby = this.state.sortby;
-    const obj = {
-      source : "the-next-web",
-      sortby: "latest"
-    };
-    axios(`https://newsapi.org/v1/articles?apiKey=213327409d384371851777e7c7f78dfe&source=${obj.source}&sortby=${obj.sortby}`).then((data) => {
-      news = data.articles[0];
-      console.log('News Here ' + news);
-    });
+    const news = this.state.articles;
     
     console.log("NewsList Data " + news)
 
-    /*const NewsComponents = news.map((item) => {
+    const NewsComponents = news.map((item) => {
         return <News key={item.publishedAt} title={item.title} description={item.description} author={item.author} href={item.url} image={item.urlToImage}  />; 
-    });*/
+    });
 
     return (
       <div>
-        <ul>{'NewsComponents'}</ul>
+        <ul>{NewsComponents}</ul>
       </div>
     );
   }
