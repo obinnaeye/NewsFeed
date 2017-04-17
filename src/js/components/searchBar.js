@@ -39,8 +39,10 @@ class SearchBar extends React.Component {
       <div class="search-box">
         <Select
         name="form-field-name"
-        options={this.state.source} 
-        value="two" class="search-bar"
+        options={this.state.source}
+        class="search-bar"
+        onChange={this.getArticles}
+        clearable="false"
         />
         <span><button> Search Headlines </button></span>
       </div>
