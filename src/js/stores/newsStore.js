@@ -30,7 +30,7 @@ class NewsStore extends EventEmitter {
   handleActions(action) {
     switch(action.type) {
       case "GET_NEWS": {
-        this.getNews(action.obj);
+        this.createArticles(action.obj);
         break;
       }
     }
@@ -40,5 +40,5 @@ class NewsStore extends EventEmitter {
 
 const newsStore = new NewsStore;
 dispatcher.register(newsStore.handleActions.bind(newsStore));
-
+window.dispatcher = dispatcher;
 export default newsStore;

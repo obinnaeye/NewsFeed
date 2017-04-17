@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import News from './news';
 import * as NewsActions from '../actions/newsActions';
 import NewsStore from '../stores/newsStore';
@@ -24,7 +23,7 @@ export default class NewsList extends React.Component {
   getNewsObj() {
     this.setState({
       articles : NewsStore.getArticles
-    });
+    }).bind(this);
   }
 
   render() {
