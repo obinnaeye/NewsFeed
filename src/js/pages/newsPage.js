@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import NavBar from '../components/navBar';
-import SearchBar from '../components/SearchBar';
-import NewsList from '../components/NewsList';
+import SearchBar from '../components/searchBar';
+import NewsList from '../components/newsList';
 
 class NewsPage extends React.Component {
   render(){

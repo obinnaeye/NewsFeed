@@ -1,17 +1,20 @@
 import { EventEmitter } from "events";
 import axios from 'axios';
 
-import dispatcher from "../dispatcher";
+import dispatcher from "../dispatcher/dispatcher";
 
 class NewsStore extends EventEmitter {
   constructor() {
     super()
-    const obj = 
+    const obj = {
+      source : "the-next-web",
+      sortby: "latest"
+    }
     this.newsList = this.getNews(obj)
   }
 
   getNews(obj) {
-    axios(`news-site?category=${obj.category}&sortby=${obj.sortby}`).then((data) => {
+    axios(`https://newsapi.org/v1/articles?apiKey=213327409d384371851777e7c7f78dfe&source=${obj.source}&sortby=${obj.sortby}`).then((data) => {
       console.log("got the data!", data);
       return data;
     });

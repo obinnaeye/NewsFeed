@@ -9,7 +9,7 @@ app.use('/dist', express.static(path.join(__dirname, 'dist')));
 app.use('/fa', express.static(path.join(__dirname, 'fa')));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+  res.sendFile(path.resolve(__dirname, 'public', 'newsPage.html'));
 });
 
 app.listen(process.env.PORT || 8080);
