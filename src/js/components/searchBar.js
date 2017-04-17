@@ -19,7 +19,6 @@ class SearchBar extends React.Component {
  getSource() {
    let options = [];
   axios(`https://newsapi.org/v1/sources?apiKey=213327409d384371851777e7c7f78dfe`).then((data) => {
-    console.log('SearchBar ' + data.data.sources);
     const source = data.data.sources;
     source.forEach((item) => {
       options.push({value: item.id, label:item.name});
