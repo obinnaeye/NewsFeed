@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   context: path.join(__dirname, 'src'),
   devtool: debug ? 'inline-sourcemap' : null,
-  entry: path.resolve(__dirname, 'src', 'js', 'pages', 'newsPage.js'),
+  entry: path.resolve(__dirname, 'src', 'js', 'pages', 'home.js'),
   module: {
     rules: [
       {
