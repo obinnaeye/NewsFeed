@@ -16,14 +16,15 @@ class NewsStore extends EventEmitter {
 
   createArticles(obj) {
     //const obj = this.newsObj;
-    axios.get(`https://newsapi.org/v1/articles?apiKey=213327409d384371851777e7c7f78dfe&source=${obj.source}&sortby=${obj.sortby}`).then((data) => {
-      console.log("got the data!", data);
+    axios.get(`https://newsapi.org/v1/articles?apiKey=213327409d384371851777e7c7f78dfe&source=${obj.source}`).then((data) => {
       this.articles = data.data.articles;
+      console.log("got the data!", this.articles);
     });
     this.emit('change')
   }
   
   getArticles(){
+    console.log('Get Articles: ' + this)
     return this.articles;
   }
 
@@ -40,5 +41,4 @@ class NewsStore extends EventEmitter {
 
 const newsStore = new NewsStore;
 dispatcher.register(newsStore.handleActions.bind(newsStore));
-window.dispatcher = dispatcher;
 export default newsStore;

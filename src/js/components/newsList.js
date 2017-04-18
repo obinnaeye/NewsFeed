@@ -1,6 +1,6 @@
 import React from 'react';
 import News from './news';
-import * as NewsActions from '../actions/newsActions';
+//import * as NewsActions from '../actions/newsActions';
 import NewsStore from '../stores/newsStore';
 
 export default class NewsList extends React.Component {
@@ -12,19 +12,18 @@ export default class NewsList extends React.Component {
   }
 
   componentWillMount() {
-    NewsStore.on('change', this.getNewsObj);
+    NewsStore.on('change', this.getNewsObj.bind(this));
   }
 
-  componentWillUnmount() {
+  /*componentWillUnmount() {
     NewsStore.removeListener('change', this.getNewsObj);
-  }
+  }*/
   
   getNewsObj() {
-    () =>{
+    console.log("Newslist getNewsObj");
       this.setState({
-        articles : NewsStore.getArticles
+        articles : NewsStore.getArticles()
       });
-    };
   }
 
   render() {
@@ -43,3 +42,5 @@ export default class NewsList extends React.Component {
     );
   }
 }
+
+module.exports = NewsList;

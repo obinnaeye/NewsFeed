@@ -1,12 +1,11 @@
 import React from 'react';
-//import TextInput from 'react-autocomplete-input';
-//import 'react-autocomplete-input/dist/bundle';
 import axios from 'axios';
 
 import Select from 'react-select';
 
 // Be sure to include styles at some point, probably during your bootstrapping
 import 'react-select/dist/react-select';
+import * as NewsActions from '../actions/newsActions';
 
 class SearchBar extends React.Component {
   constructor(){
@@ -19,16 +18,16 @@ class SearchBar extends React.Component {
   }
   
   getSource() {
-   let options = [];
-  axios(`https://newsapi.org/v1/sources?apiKey=213327409d384371851777e7c7f78dfe`).then((data) => {
-    const source = data.data.sources;
-    source.forEach((item) => {
-      options.push({value: item.id, label:item.name});
+    let options = [];
+    axios(`https://newsapi.org/v1/sources?apiKey=213327409d384371851777e7c7f78dfe`).then((data) => {
+      const source = data.data.sources;
+      source.forEach((item) => {
+        options.push({value: item.id, label:item.name});
+      });
     });
-  });
-  this.setState({
-    source : options
-  });
+    this.setState({
+      source : options
+    });
   }
   
   componentWillMount() {
@@ -37,6 +36,16 @@ class SearchBar extends React.Component {
   
   getValue(value){
     this.setState({currentValue: value});
+  }
+  
+  searchNews(){
+    const source = this.state.currentValue.value;
+    console.log(source);
+    NewsActions.getNews({source: source, sortby: 'top'})
+    /*axios.get(`https://newsapi.org/v1/articles?apiKey=213327409d384371851777e7c7f78dfe&source=${source}`).then((data) => {
+      console.log("got the data!", data);
+      this.articles = data.data.articles;
+    });*/
   }
   
   
@@ -50,8 +59,9 @@ class SearchBar extends React.Component {
         class="search-bar"
         onChange={this.getValue.bind(this)}
         clearable={true}
+        ref="search-bar"
         />
-        <span><button> Search Headlines </button></span>
+        <span><button onClick={this.searchNews.bind(this)}> Search Headlines </button></span>
       </div>
     );
   }
