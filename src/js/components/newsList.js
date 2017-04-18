@@ -12,7 +12,11 @@ export default class NewsList extends React.Component {
   }
 
   componentWillMount() {
-    NewsStore.on('change', this.getNewsObj.bind(this));
+    NewsStore.on('change', () => {
+      this.setState({
+        articles : NewsStore.getArticles()
+      });
+    });
   }
 
   /*componentWillUnmount() {

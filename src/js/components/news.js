@@ -5,9 +5,11 @@ class News extends React.Component {
     return(
       <div class="news-box">
         <h4 class="news-title">{this.props.title}</h4>
-        <h4 class="news-brief">{this.props.brief}</h4>
-        <i href={this.props.href} class="fa fa-external-link" />
+        <h4 class="news-description">{this.props.description}</h4>
+        <a href={this.props.href} target="_blank"> <i href={this.props.href} class="fa fa-external-link" /></a>
       </div>
     );
   }
 }
+
+module.exports = News;

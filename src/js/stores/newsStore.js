@@ -16,11 +16,12 @@ class NewsStore extends EventEmitter {
 
   createArticles(obj) {
     //const obj = this.newsObj;
+    const self = this;
     axios.get(`https://newsapi.org/v1/articles?apiKey=213327409d384371851777e7c7f78dfe&source=${obj.source}`).then((data) => {
       this.articles = data.data.articles;
       console.log("got the data!", this.articles);
+      this.emit('change')
     });
-    this.emit('change')
   }
   
   getArticles(){
