@@ -1,8 +1,9 @@
+import path from 'path';
 import React from 'react';
 import News from './news';
 //import * as NewsActions from '../actions/newsActions';
 import NewsStore from '../stores/newsStore';
-
+import '../../scss/main.scss';
 export default class NewsList extends React.Component {
   constructor() {
     super();
@@ -40,9 +41,7 @@ export default class NewsList extends React.Component {
     });
 
     return (
-      <div>
-        <ul>{NewsComponents}</ul>
-      </div>
+        <ul class="flex-container">{NewsComponents}</ul>
     );
   }
 }

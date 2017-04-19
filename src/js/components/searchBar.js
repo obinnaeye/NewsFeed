@@ -40,12 +40,7 @@ class SearchBar extends React.Component {
   
   searchNews(){
     const source = this.state.currentValue.value;
-    console.log(source);
     NewsActions.getNews({source: source, sortby: 'top'})
-    /*axios.get(`https://newsapi.org/v1/articles?apiKey=213327409d384371851777e7c7f78dfe&source=${source}`).then((data) => {
-      console.log("got the data!", data);
-      this.articles = data.data.articles;
-    });*/
   }
   
   
