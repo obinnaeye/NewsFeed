@@ -1,7 +1,7 @@
 import path from 'path';
 import React from 'react';
 import News from './news';
-//import * as NewsActions from '../actions/newsActions';
+import * as NewsActions from '../actions/newsActions';
 import NewsStore from '../stores/newsStore';
 import '../../scss/main.scss';
 export default class NewsList extends React.Component {
@@ -13,6 +13,7 @@ export default class NewsList extends React.Component {
   }
 
   componentWillMount() {
+    NewsActions.getNews({source: 'al-jazeera-english', sortby: 'top'});
     NewsStore.on('change', () => {
       this.setState({
         articles : NewsStore.getArticles()
@@ -37,7 +38,7 @@ export default class NewsList extends React.Component {
     console.log("NewsList Data " + news);
 
     const NewsComponents = news.map((item) => {
-        return <News key={item.publishedAt} title={item.title} description={item.description} author={item.author} href={item.url} image={item.urlToImage}  />; 
+        return <News key={item.publishedAt} title={item.title}  author={item.author} href={item.url} src={item.urlToImage}  />; 
     });
 
     return (
