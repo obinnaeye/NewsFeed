@@ -26,7 +26,6 @@ export default class NewsList extends React.Component {
   }*/
   
   getNewsObj() {
-    console.log("Newslist getNewsObj");
       this.setState({
         articles : NewsStore.getArticles()
       });
@@ -34,11 +33,9 @@ export default class NewsList extends React.Component {
 
   render() {
     const news = this.state.articles;
-    
-    console.log("NewsList Data " + news);
 
-    const NewsComponents = news.map((item) => {
-        return <News key={item.publishedAt} title={item.title}  author={item.author} href={item.url} src={item.urlToImage}  />; 
+    const NewsComponents = news.map((item, i) => {
+        return <News key={i} title={item.title}  author={item.author} href={item.url} src={item.urlToImage}  />; 
     });
 
     return (
