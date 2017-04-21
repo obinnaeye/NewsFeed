@@ -7,9 +7,9 @@ export function getNews(obj) {
   });
 }
 
-export function sortNews(sortby) {
+export function sortNews(obj) {
   dispatcher.dispatch({
     type: "SORT_NEWS",
-    sortby,
+    obj,
   });
 }

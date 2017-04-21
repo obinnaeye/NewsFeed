@@ -71,10 +71,13 @@ class NewsPage extends React.Component {
   }
   
   sortAction(){
-    const source = this.state.currentValue.value;
-    const sortby = this.state.sortBy;
-    if(source)
-    NewsActions.getNews({source: source, sortby: sortby[0]})
+    return (e) => {
+      const source = this.state.currentValue.value;
+      const sortby = e.target.value;
+      console.log(sortby)
+      if(source)
+      NewsActions.getNews({source: source, sortby})
+    }   
   }
   
   render(){
@@ -87,7 +90,7 @@ class NewsPage extends React.Component {
           onchange={this.getValue.bind(this)}
           onclick={this.searchNews.bind(this)}
           sorts = {this.getSorts()}
-          sortAction = {() => {console.log('sort')}}
+          sortAction = {this.sortAction()}
         />
         <NewsList />
       </div>
