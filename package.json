@@ -2,7 +2,7 @@
   "name": "newsfeed",
   "version": "0.0.0",
   "description": "A simple news feed app that displays news headlines from top news sites.",
-  "main": "webpack.config.js",
+  "main": "server.js",
   "dependencies": {
     "axios": "^0.16.1",
     "babel-core": "^6.24.1",
