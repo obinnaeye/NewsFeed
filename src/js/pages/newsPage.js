@@ -13,7 +13,8 @@ class NewsPage extends React.Component {
       sources : [],
       rawSource: [],
       currentValue : '',
-      sortBy : ['top', 'latest']
+      sortBy : ['top', 'latest'],
+      currentSort : ""
     };
     this.getSource =this.getSource.bind(this);
     this.sourceObj = [];
@@ -65,18 +66,25 @@ class NewsPage extends React.Component {
   
   searchNews(){
     const source = this.state.currentValue.value;
-    const sortby = this.state.sortBy;
-    if(source)
-    NewsActions.getNews({source: source, sortby: sortby[0]})
+    if(source){
+      //check if sortBysAvailable is more than one and currentSort exists in state
+      const sortby = this.state.sortBy.length > 1 && this.state.currentSort?  this.state.currentSort : this.state.sortBy[0];
+      
+      NewsActions.getNews({source: source, sortby: sortby});
+    }
+  
   }
   
   sortAction(){
     return (e) => {
       const source = this.state.currentValue.value;
       const sortby = e.target.value;
-      console.log(sortby)
-      if(source)
-      NewsActions.getNews({source: source, sortby})
+      if(source){
+        NewsActions.sortNews({source: source, sortby});
+      }
+      this.setState({
+        currentSort : sortby
+      })
     }   
   }
   
@@ -91,6 +99,7 @@ class NewsPage extends React.Component {
           onclick={this.searchNews.bind(this)}
           sorts = {this.getSorts()}
           sortAction = {this.sortAction()}
+          ref = {'select-sort'}
         />
         <NewsList />
       </div>

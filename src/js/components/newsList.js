@@ -1,4 +1,3 @@
-import path from 'path';
 import React from 'react';
 import News from './news';
 import * as NewsActions from '../actions/newsActions';
@@ -21,19 +20,8 @@ export default class NewsList extends React.Component {
     });
   }
 
-  /*componentWillUnmount() {
-    NewsStore.removeListener('change', this.getNewsObj);
-  }*/
-  
-  getNewsObj() {
-      this.setState({
-        articles : NewsStore.getArticles()
-      });
-  }
-
   render() {
     const news = this.state.articles;
-
     const NewsComponents = news.map((item, i) => {
         return <News key={i} title={item.title}  author={item.author} href={item.url} src={item.urlToImage}  />; 
     });
