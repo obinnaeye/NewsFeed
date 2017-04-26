@@ -13,7 +13,7 @@ class HomeBody extends React.Component {
                     <div className="row">
                         <div className="col-md-5 hidden-xs">
                             <div className="parallax-image">
-                                <img class="phone" src="img/screen696x696.jpeg" styles="margin-top: 20px"/>
+                                <img class="phone" src="img/screen696x696.jpeg" />
                             </div>
                         </div>
                         <div className="col-md-6 col-md-offset-1">

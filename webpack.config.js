@@ -5,7 +5,11 @@ const path = require('path');
 module.exports = {
   context: path.join(__dirname, 'src'),
   devtool: debug ? 'inline-sourcemap' : null,
-  entry: path.resolve(__dirname, 'src', 'js', 'pages', 'newsPage.js'),
+  entry: path.resolve(__dirname, 'src', 'js', 'pages', 'index.js'),
+   output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'index.min.js',
+  },
   module: {
     rules: [
       {
@@ -20,10 +24,6 @@ module.exports = {
       {test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'],}
       
     ]
-  },
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'main.min.js',
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
