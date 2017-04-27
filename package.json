@@ -44,6 +44,7 @@
     "eslint-plugin-react": "^6.10.3",
     "jest": "^19.0.2",
     "jest-cli": "^19.0.2",
+    "jest-css-modules": "^1.1.0",
     "jest-enzyme": "^3.0.1",
     "node-sass": "^4.5.2",
     "react-addons-test-utils": "^15.5.1",
@@ -54,6 +55,7 @@
   "jest": {
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
     "transform": {
+      ".scss": "<rootDir>/node_modules/jest-css-modules",
       ".*": "<rootDir>/node_modules/babel-jest"
     }
   },

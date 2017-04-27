@@ -3,6 +3,7 @@ import Login from './login';
 
 class HomeBody extends React.Component {
   render() {
+      
     return(
       <div className="wrapper">
             <div className="parallax filter-gradient blue" data-color="blue">
