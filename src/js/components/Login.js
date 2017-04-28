@@ -1,5 +1,5 @@
 import React from 'react';
-import FontAwesome from './fontAwesome';
+import FontAwesome from './FontAwesome';
 import '../../scss/main.scss';
 
 class Login extends React.Component {

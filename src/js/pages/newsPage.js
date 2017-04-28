@@ -1,15 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import NavBar from '../components/navBar';
-import SearchBar from '../components/searchBar';
-import NewsList from '../components/newsList';
+import SearchBar from '../components/SearchBar';
+import NewsList from '../components/NewsList';
+import News from '../components/News';
 import axios from 'axios';
 import * as NewsActions from '../actions/newsActions';
+import NewsStore from '../stores/newsStore';
 
 class NewsPage extends React.Component {
+  /*constructor() {
+    super();
+    this.state = {
+      articles : []
+    };
+  }*/
+
+  componentWillMount() {
+    NewsActions.getNews({source: 'al-jazeera-english', sortby: 'top'});
+    NewsStore.on('change', () => {
+      this.setState({
+        articles : NewsStore.getArticles()
+      });
+    });
+  }
+  
   constructor(){
     super();
     this.state ={
+      articles: [],
       sources : [],
       rawSource: [],
       currentValue : '',
@@ -37,9 +56,9 @@ class NewsPage extends React.Component {
     }, () => {});
   }
   
-  componentWillMount() {
+ /* componentWillMount() {
     this.getSource();
-  }
+  }*/
   
   componentDidMount() {
     this.getSource();
@@ -89,6 +108,11 @@ class NewsPage extends React.Component {
   }
   
   render(){
+    const news = this.state.articles;
+    const NewsComponents = news.map((item, i) => {
+        return <News key={i} title={item.title} href={item.url} src={item.urlToImage}  />; 
+    });
+    
     return(
       <div>
         <NavBar />
@@ -101,7 +125,7 @@ class NewsPage extends React.Component {
           sortAction = {this.sortAction()}
           ref = {'select-sort'}
         />
-        <NewsList />
+        <NewsList children={NewsComponents} />
       </div>
     );
   }
