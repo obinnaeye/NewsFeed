@@ -62,7 +62,8 @@
   "scripts": {
     "dev": "webpack-dev-server --content-base src --inline --hot",
     "test": "jest",
-    "start": "node server.js"
+    "start": "node server.js",
+    "coverage":  "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",

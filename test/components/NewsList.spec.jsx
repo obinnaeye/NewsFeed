@@ -21,6 +21,5 @@ describe('NewsList component', () => {
 
   it('should mount in a full DOM', () => {
     expect(mount(<NewsList />).find('.flex-container').length).toBe(1);
-    expect(mount(<NewsList />).find('.flex-container').length).toBe(1);
   });
 });

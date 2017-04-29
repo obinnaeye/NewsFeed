@@ -5,8 +5,8 @@ class News extends React.Component {
     return(
       <li className="flex-item">
         <img src={this.props.src} />
-        <span class="news-title">{this.props.title}</span>
-        <a href={this.props.href} target="_blank"> <i class="fa fa-external-link" /></a>
+        <span className="news-title">{this.props.title}</span>
+        <a href={this.props.href} target="_blank"> <i className="fa fa-external-link" /></a>
       </li>
     );
   }
