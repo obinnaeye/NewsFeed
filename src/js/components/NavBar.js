@@ -1,7 +1,7 @@
 import React from 'react';
 import Logout from './Logout'
 
-class Navbar extends React.Component {
+class NavBar extends React.Component {
   render() {
     return (
       <div className="header">
@@ -21,4 +21,4 @@ class Navbar extends React.Component {
 }
 
 
-module.exports = Navbar;
+export default NavBar;
