@@ -1,18 +1,21 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 
 import NavBar from '../../src/js/components/NavBar';
-import Logout from '../../src/js/components/Logout';
 
 describe('NavBar component', () => {
   it('should exist', () => {
     expect(<NavBar />).toBeDefined();
   });
 
+  it('should mount in a full DOM', () => {
+    expect(mount(<NavBar />).find('.header').length).toBe(1);
+  });
+
   it('should mount and render a "nav" element as the first child', () => {
-    const MountWrapper = mount(<NavBar />);
-    expect(MountWrapper.children().first().is('nav')).toBe(true);
-    expect(MountWrapper.find('nav').parent().is('NavBar')).toEqual(true);
+    const wrapper = mount(<NavBar />);
+    expect(wrapper.children().first().is('nav')).toBe(true);
+    expect(wrapper.find('nav').parent().is('NavBar')).toEqual(true);
   });
 
   it('should accept props', () => {
@@ -20,10 +23,6 @@ describe('NavBar component', () => {
     expect(wrapper.props().test).toEqual('props');
     wrapper.setProps({ test: 'props2' });
     expect(wrapper.props().test).toEqual('props2');
-  });
-
-  it('should mount in a full DOM', () => {
-    expect(mount(<NavBar />).find('.header').length).toBe(1);
   });
 
   it('should render child component', () => {

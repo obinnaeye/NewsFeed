@@ -6,13 +6,15 @@ class HomeHeader extends React.Component {
         <nav className="navbar navbar-transparent navbar-top" role="navigation">
             <div className="container">
                 <div className="navbar-header">
-                    <button id="menu-toggle" type="button" className="navbar-toggle" data-toggle="collapse" data-target="#example">
+                    <button id="menu-toggle" 
+                    type="button" className="navbar-toggle" 
+                    data-toggle="collapse" data-target="#example">
                     <span className="sr-only">Toggle navigation</span>
                     <span className="icon-bar bar1"></span>
                     <span className="icon-bar bar2"></span>
                     <span className="icon-bar bar3"></span>
                     </button>
-                    <a href="http://www.creative-tim.com">
+                    <a href="/">
                         <div className="logo-container">
                             <div className="logo">
                                 <img src="assets/img/new_logo.png" alt="gistMe Logo" />
