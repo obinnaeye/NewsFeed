@@ -5,9 +5,9 @@ const path = require('path');
 module.exports = {
   context: path.join(__dirname, 'src'),
   devtool: debug ? 'inline-sourcemap' : null,
-  entry: './js/main.js',
+  entry: path.resolve(__dirname, 'src', 'js', 'pages', 'newsPage.js'),
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
@@ -17,7 +17,9 @@ module.exports = {
           plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
         },
       },
-    ],
+      {test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'],}
+      
+    ]
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -29,3 +31,4 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
   ],
 };
+
