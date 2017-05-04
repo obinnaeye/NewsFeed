@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   context: path.join(__dirname, 'src'),
   devtool: debug ? 'inline-sourcemap' : null,
-  entry: path.resolve(__dirname, 'src', 'js', 'pages', 'newsPage.js'),
+  entry: path.resolve(__dirname, 'src', 'js', 'pages', 'newsPage.jsx'),
    output: {
     path: path.join(__dirname, 'dist'),
     filename: 'main.min.js',
@@ -21,9 +21,20 @@ module.exports = {
           plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
         },
       },
-      {test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'],}
-      
-    ]
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
+      },
+      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+    ],
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),

@@ -36,9 +36,9 @@ module.exports = (passport) => {
         newUser.google.token = accessToken;
         newUser.google.displayName = profile.displayName;
 
-        newUser.save(function (err) {
-          if (err) {
-            throw err;
+        newUser.save((error) => {
+          if (error) {
+            throw error;
           }
         });
         return done(null, newUser);

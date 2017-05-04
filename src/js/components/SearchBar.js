@@ -6,6 +6,9 @@ import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
 class SearchBar extends React.Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+  }
 
   render() {
     return (
