@@ -14,6 +14,14 @@ class App extends React.Component {
   }
 }
 
+// render(
+//     <Router>
+//         <!--Each route is defined with Route-->
+//         <Route path="/" component={Home}/>
+//     </Router>,
+//     document.getElementById('container')
+// );
+
 ReactDOM.render(
   <App />,
   document.getElementById('app')

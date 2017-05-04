@@ -66,7 +66,6 @@ class NewsPage extends React.Component {
   }
 
   getValue(value) {
-    console.log(this.state.currentValue);
     if (value) {
       this.setState({
         currentValue: value,
@@ -127,7 +126,6 @@ class NewsPage extends React.Component {
           onclick={this.searchNews}
           sorts={this.getSorts()}
           sortAction={this.sortAction()}
-          ref={'select-sort'}
         />
         <NewsList news={NewsComponents} />
       </div>
