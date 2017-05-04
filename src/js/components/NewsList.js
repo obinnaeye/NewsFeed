@@ -2,7 +2,8 @@ import React from 'react';
 //import News from './News';
 //import * as NewsActions from '../actions/newsActions';
 //import NewsStore from '../stores/newsStore';
-//import '../../scss/main.scss';
+import '../../scss/main.scss';
+
 export default class NewsList extends React.Component {
   /*constructor() {
     super();

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-//import NavBar from '../components/NavBar';
+import NavBar from '../components/NavBar';
 import SearchBar from '../components/SearchBar';
 import NewsList from '../components/NewsList';
 import News from '../components/News';
@@ -15,22 +15,23 @@ class NewsPage extends React.Component {
       articles : []
     };
   }*/
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       articles: [],
       sources: [],
       rawSource: [],
-      currentValue: '',
+      currentValue: { value: 'al-jazeera-english', label: 'Al Jazeera English', sortby: ['top', 'latest'] },
       sortBy: ['top', 'latest'],
       currentSort: '',
     };
-    this.getSource =this.getSource.bind(this);
+    this.getSource = this.getSource.bind(this);
     this.sourceObj = [];
+    this.getValue = this.getValue.bind(this);
+    this.searchNews = this.searchNews.bind(this);
   }
 
   componentWillMount() {
-    NewsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });
     NewsStore.on('change', () => {
       this.setState({
         articles: NewsStore.getArticles(),
@@ -44,6 +45,7 @@ class NewsPage extends React.Component {
 
   componentDidMount() {
     this.getSource();
+    NewsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });
   }
 
   getSource() {
@@ -64,6 +66,7 @@ class NewsPage extends React.Component {
   }
 
   getValue(value) {
+    console.log(this.state.currentValue);
     if (value) {
       this.setState({
         currentValue: value,
@@ -85,7 +88,7 @@ class NewsPage extends React.Component {
   }
 
   searchNews() {
-    const source = this.state.currentValue.value;
+    const source = this.state.currentValue.value ? this.state.currentValue.value : '' ;
     if (source) {
       //check if sortBysAvailable is more than one and currentSort exists in state
       const sortby = this.state.sortBy.length > 1 && this.state.currentSort ?

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Select from 'react-select';
 
@@ -6,9 +6,6 @@ import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 
 class SearchBar extends React.Component {
-  static propTypes = {
-    name: PropTypes.string.isRequired,
-  }
 
   render() {
     return (
@@ -20,7 +17,7 @@ class SearchBar extends React.Component {
           class="search-bar"
           onChange={this.props.onchange}
           clearable={true}
-          ref="search-bar"
+          ref={"search-bar"}
         />
         <span><button onClick={this.props.onclick}> Search Headlines </button></span>
         <span>
@@ -32,5 +29,10 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+// SearchBar.propTypes = {
+//   sources: PropTypes.arrayOf(PropTypes.any).isRequired,
+//   value: PropTypes.shape(PropTypes.any).isRequired,
+// };
 
 export default SearchBar;
