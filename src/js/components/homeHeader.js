@@ -33,5 +33,4 @@ const HomeHeader = () =>
     </div>
   </nav>;
 
-module.exports = HomeHeader;
-
+export default HomeHeader;

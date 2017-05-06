@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-
 import HomeHeader from '../../src/js/components/HomeHeader';
+
 describe('HomeHeader component', () => {
   it('should exist', () => {
     expect(<HomeHeader />).toBeDefined();
