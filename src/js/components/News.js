@@ -10,10 +10,11 @@ const News = props =>
     </a>
   </li>;
 
+/*eslint-disable*/
 News.propTypes = {
-  src: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
+  src: PropTypes.string,
+  title: PropTypes.string,
+  href: PropTypes.string,
 };
 
 module.exports = News;

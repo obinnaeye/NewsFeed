@@ -59,7 +59,10 @@
     "webpack": "^2.4.0"
   },
   "jest": {
+    "verbose": true,
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "collectCoverageFrom" : ["**/src/**.{js,jsx}", "!**/node_modules/**",
+      "!**/vendor/**", "!**/src/configs/**", "!**/src/main.js", "!**/src/App.js"],
     "transform": {
       ".scss": "<rootDir>/node_modules/jest-css-modules",
       ".*": "<rootDir>/node_modules/babel-jest"
