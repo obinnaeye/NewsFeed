@@ -19,8 +19,8 @@ const HomeBody = () =>
               <h2>Hi Mr. News Seeker.</h2>
               <br />
               <h5>
-              Catch the latest gists from over 74 News Agents accross the world!
-                With gistMe you are a news man. It's Adventure, It's Awesome, It's Simple!
+                {`Catch the latest gists from over 74 News Agents accross the world!
+                With gistMe you are a news man. It's Adventure, It's Awesome, It's Simple!`}
               </h5>
             </div>
             <Login />

@@ -16,7 +16,7 @@ class NewsStore extends EventEmitter {
     });
   }
 
-  getArticles(){
+  getArticles() {
     return this.articles;
   }
 
@@ -26,22 +26,26 @@ class NewsStore extends EventEmitter {
       this.emit('change');
     });
   }
-
+ /*eslint-disable*/
   handleActions(action) {
-    switch(action.type) {
-      case "GET_NEWS": {
+    /*eslint-enable*/
+    switch (action.type) {
+      case 'GET_NEWS': {
         this.createArticles(action.obj);
         break;
       }
-      case "SORT_NEWS": {
+      case 'SORT_NEWS': {
         this.sortArticles(action.obj);
         break;
+      }
+      default : {
+        return 'No Action Was Called!';
       }
     }
   }
 
 }
 
-const newsStore = new NewsStore;
+const newsStore = new NewsStore();
 dispatcher.register(newsStore.handleActions.bind(newsStore));
 export default newsStore;

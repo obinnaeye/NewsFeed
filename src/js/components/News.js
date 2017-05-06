@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const News = props =>
   <li className="flex-item">
@@ -8,5 +9,11 @@ const News = props =>
       <i className="fa fa-external-link" />
     </a>
   </li>;
+
+News.propTypes = {
+  src: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+};
 
 module.exports = News;

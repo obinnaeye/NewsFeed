@@ -76,9 +76,9 @@ class NewsPage extends React.Component {
   }
 
   searchNews() {
-    const source = this.state.currentValue.value ? this.state.currentValue.value : '' ;
+    const source = this.state.currentValue.value ? this.state.currentValue.value : '';
     if (source) {
-      //check if sortBysAvailable is more than one and currentSort exists in state
+      // check if sortBysAvailable is more than one and currentSort exists in state
       const sortby = this.state.sortBy.length > 1 && this.state.currentSort ?
       this.state.currentSort : this.state.sortBy[0];
       NewsActions.getNews({ source, sortby });
