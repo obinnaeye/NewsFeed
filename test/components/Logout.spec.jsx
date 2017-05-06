@@ -3,7 +3,7 @@ import { shallow, mount, render } from 'enzyme';
 
 import Logout from '../../src/js/components/Logout';
 import FontAwesome from '../../src/js/components/FontAwesome';
-
+/*eslint-disable */
 describe('Logout component', function() {
   it('should render without throwing an error', function() {
     

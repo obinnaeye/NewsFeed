@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import HomeBody from '../../src/js/components/HomeBody';
-
+/*eslint-disable */
 describe('HomeBody component', () => {
   it('should exist', () => {
     expect(<HomeBody />).toBeDefined();

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const News = (props) =>
+const News = props =>
   <li className="flex-item">
     <img src={props.src} alt="news" />
     <span className="news-title">{props.title}</span>

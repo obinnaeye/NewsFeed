@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 
 import NewsList from '../../src/js/components/NewsList';
-
+/*eslint-disable */
 describe('NewsList component', () => {
   it('should exist', () => {
     expect(NewsList).toBeDefined();

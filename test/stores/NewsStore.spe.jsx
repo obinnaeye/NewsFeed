@@ -1,3 +1,4 @@
+/*eslint-disable */
 jest.dontMock('../../src/js/stores/newsStore');
 // jest.dontMock('../../constants/AdminConstants.js');
 

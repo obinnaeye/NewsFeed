@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import SearchBar from '../../src/js/components/SearchBar';
-
+/*eslint-disable */
 describe('SearchBar component', () => {
   it('should exist', () => {
     expect(SearchBar).toBeDefined();

@@ -4,9 +4,11 @@ const HomeHeader = () =>
   <nav className="navbar navbar-transparent navbar-top" role="navigation">
     <div className="container">
       <div className="navbar-header">
-        <button id="menu-toggle"
+        <button
+          id="menu-toggle"
           type="button" className="navbar-toggle"
-          data-toggle="collapse" data-target="#example">
+          data-toggle="collapse" data-target="#example"
+        >
           <span className="sr-only">Toggle navigation</span>
           <span className="icon-bar bar1" />
           <span className="icon-bar bar2" />

@@ -56,13 +56,13 @@ const HomeBody = () =>
         </nav>
         <div className="social-area pull-right">
           <a className="btn btn-social btn-facebook btn-simple">
-          <i className="fa fa-facebook-square"></i>
+            <i className="fa fa-facebook-square" />
           </a>
           <a className="btn btn-social btn-twitter btn-simple">
-          <i className="fa fa-twitter"></i>
+            <i className="fa fa-twitter" />
           </a>
           <a className="btn btn-social btn-pinterest btn-simple">
-          <i className="fa fa-pinterest"></i>
+            <i className="fa fa-pinterest" />
           </a>
         </div>
         <div className="copyright">
