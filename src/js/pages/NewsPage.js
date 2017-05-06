@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import NavBar from '../components/NavBar';
 import SearchBar from '../components/SearchBar';
@@ -9,12 +8,6 @@ import * as NewsActions from '../actions/newsActions';
 import NewsStore from '../stores/newsStore';
 
 class NewsPage extends React.Component {
-  /*constructor() {
-    super();
-    this.state = {
-      articles : []
-    };
-  }*/
   constructor(props) {
     super(props);
     this.state = {
@@ -38,10 +31,6 @@ class NewsPage extends React.Component {
       });
     });
   }
-
- /* componentWillMount() {
-    this.getSource();
-  }*/
 
   componentDidMount() {
     this.getSource();
@@ -133,4 +122,4 @@ class NewsPage extends React.Component {
   }
 }
 
-ReactDOM.render(<NewsPage />, document.getElementById('app'));
+export default NewsPage;

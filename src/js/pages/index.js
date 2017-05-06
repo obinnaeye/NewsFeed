@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HomeHeader from '../components/homeHeader';
-import HomeBody from '../components/homeBody';
+import HomeBody from '../components/HomeBody';
 
-class App extends React.Component {
+class Index extends React.Component {
   render() {
     return (
       <div>
@@ -14,15 +14,7 @@ class App extends React.Component {
   }
 }
 
-// render(
-//     <Router>
-//         <!--Each route is defined with Route-->
-//         <Route path="/" component={Home}/>
-//     </Router>,
-//     document.getElementById('container')
-// );
-
 ReactDOM.render(
-  <App />,
-  document.getElementById('app')
+  <Index />,
+  document.getElementById('app'),
 );

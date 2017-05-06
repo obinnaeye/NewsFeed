@@ -74,7 +74,7 @@ app.route('/auth/google/callback')
     failureRedirect: '/'
     })
   );
-  
+
 app.route('/logout')
   .get(function (req, res) {
     req.logout();

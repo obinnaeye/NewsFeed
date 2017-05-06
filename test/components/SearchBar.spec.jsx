@@ -1,42 +1,36 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
-jest.Mock('../../src/js/components/SearchBar');
+import { mount } from 'enzyme';
 import SearchBar from '../../src/js/components/SearchBar';
-console.log(SearchBar);
 
 describe('SearchBar component', () => {
-  xit('should render without throwing an error', () => {
-    const sort = <span>
-          <select onChange={this.props.sortAction}>
-            {this.props.sorts}
-          </select>
-        </span>;
-    expect(shallow(<SearchBar />).contains('.search-box')).toBe(true);
-    // expect(shallow(<Login />).contains(<FontAwesome name="fa fa-google-plus" />)).toBe(true);
-    // expect(shallow(<Login />).contains(button)).toBe(true);
+  it('should exist', () => {
+    expect(SearchBar).toBeDefined();
   });
 
-  xit('should be selectable by class "search-box"', function() {
-    expect(shallow(<Login />).is('.search-box')).toBe(true);
+  it('should mount in a full DOM', function() {
+    expect(mount(<SearchBar />).find('.search-box').length).toBe(1);
   });
 
-  xit('should mount in a full DOM', function() {
-    expect(mount(<Login />).find('.btn').length).toBe(1);
+  it('should contain child element', () => {
+    const wrapper = mount(<SearchBar />);
+    expect(wrapper.children().length).toBeGreaterThan(0);
   });
 
-  xit('should be wrapped in a single "div" element', function() {
-    const wrapper = 
-    expect(mount(<Login />).find('.btn').length).toBe(1);
+  it('should accept props', () => {
+    const wrapper = mount(<SearchBar test="props" />);
+    expect(wrapper.props().test).toEqual('props');
+    wrapper.setProps({ test: 'props2' });
+    expect(wrapper.props().test).toEqual('props2');
   });
 
-  xit('should be selectable by class "btn"', function() {
-    expect(shallow(<SearchBar />).contains(<Select />)).toBe(true);
+  it('should mount and render a "Select" element as the first child', () => {
+    const wrapper = mount(<SearchBar />);
+    expect(wrapper.children().first().is('Select')).toBe(true);
   });
 
-  xit('allows us to set props', () => {
-    const wrapper = mount(<SearchBar bar="baz" />);
-    expect(wrapper.props().bar).to.equal('baz');
-    wrapper.setProps({ bar: 'foo' });
-    expect(wrapper.props().bar).to.equal('foo');
+  it('should be able to render static contents', () => {
+    const wrapper = mount(<SearchBar />);
+    const text = wrapper.find('button').text();
+    expect(text).toEqual(' Search Headlines ');
   });
 });

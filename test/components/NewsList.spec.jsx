@@ -7,11 +7,11 @@ describe('NewsList component', () => {
   it('should exist', () => {
     expect(NewsList).toBeDefined();
   });
-  
+
   it('should render one "ul" element', () => {
     expect(shallow(<NewsList />).find('ul').length).toBe(1);
   });
-  
+
   it('should accept props', () => {
     const wrapper = mount(<NewsList test='props'/>);
     expect(wrapper.props().test).toEqual('props');

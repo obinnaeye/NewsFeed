@@ -15,7 +15,6 @@ describe('HomeBody component', () => {
   it('should mount and render a "div" element as the first child', () => {
     const wrapper = mount(<HomeBody />);
     expect(wrapper.children().first().is('div')).toBe(true);
-    //expect(wrapper.find('div').parent().is('HomeBody')).toEqual(true);
   });
 
   it('should contain only two elements as direct children', () => {

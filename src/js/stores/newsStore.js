@@ -1,13 +1,12 @@
-import { EventEmitter } from "events";
+import { EventEmitter } from 'events';
 import axios from 'axios';
 
-import dispatcher from "../dispatcher/dispatcher";
+import dispatcher from '../dispatcher/dispatcher';
 
 class NewsStore extends EventEmitter {
   constructor() {
     super();
     this.articles = [];
-    
   }
 
   createArticles(obj) {
@@ -16,11 +15,11 @@ class NewsStore extends EventEmitter {
       this.emit('change');
     });
   }
-  
+
   getArticles(){
     return this.articles;
   }
-  
+
   sortArticles(obj) {
     axios.get(`https://newsapi.org/v1/articles?apiKey=213327409d384371851777e7c7f78dfe&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
       this.articles = data.data.articles;
