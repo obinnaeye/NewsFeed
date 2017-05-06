@@ -35,3 +35,14 @@
     font-size: 15px;
   }
 }
+
+.btn, .btn:hover, .btn:active {
+  color: white;
+  background: red;
+  border: none;
+  
+  a, a:hover, a:active, a:visited {
+    color: inherit;
+    background: inherit;
+  }
+}

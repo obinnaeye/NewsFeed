@@ -1,20 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import HomeHeader from '../components/homeHeader';
-import HomeBody from '../components/homeBody';
+import HomeHeader from '../components/HomeHeader';
+import HomeBody from '../components/HomeBody';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <HomeHeader />
-        <HomeBody />
-      </div>
-    );
-  }
-}
+const Index = () =>
+  <div>
+    <HomeHeader />
+    <HomeBody />
+  </div>;
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('app')
-);
+export default Index;

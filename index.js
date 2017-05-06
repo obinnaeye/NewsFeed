@@ -24,6 +24,7 @@ function home(req, res){
 
 
 require('./config/passport')(passport);
+
 mongoose.connect(MONGODB_URI);
 
 var sess = {
@@ -64,8 +65,8 @@ app.get('/news', (req, res) => {
 
 // authenticate user on google
 app.route('/auth/google')
-  .get(passport.authenticate('google', { scope: ['profile', 'email'] }));
-
+  .get(passport.authenticate('google', {scope :['profile', 'email']}));
+  
 //OAuth response
 app.route('/auth/google/callback')
   .get(
@@ -74,7 +75,7 @@ app.route('/auth/google/callback')
     failureRedirect: '/'
     })
   );
-
+  
 app.route('/logout')
   .get(function (req, res) {
     req.logout();
