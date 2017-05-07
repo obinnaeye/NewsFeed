@@ -9,6 +9,9 @@ const NavBar = () =>
           <a className="navbar-brand" href="/">gistMe</a>
         </div>
         <ul className="nav navbar-nav navbar-right">
+          <img
+            src="img/globe-earth-animation.gif" alt="background"
+          />
           <Logout />
         </ul>
       </div>

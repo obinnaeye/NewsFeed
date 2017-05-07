@@ -6,14 +6,14 @@ module.exports = {
   context: path.join(__dirname, 'src'),
   devtool: debug ? 'inline-sourcemap' : null,
   entry: path.resolve(__dirname, 'src', 'js', 'pages', 'NewsPageEntry.jsx'),
-   output: {
+  output: {
     path: path.join(__dirname, 'dist'),
     filename: 'main.min.js',
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js|.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         query: {
@@ -34,6 +34,7 @@ module.exports = {
         ],
       },
       { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+      { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=/img/[name].[ext]' },
     ],
   },
   plugins: debug ? [] : [

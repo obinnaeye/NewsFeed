@@ -13,7 +13,7 @@ const SearchBar = props =>
       onChange={props.onchange}
       clearable
     />
-    <span><button onClick={props.onclick}> Search Headlines </button></span>
+    <span className="search-btn"><button onClick={props.onclick}> Search Headlines </button></span>
     <span>
       <select onChange={props.sortAction}>
         {props.sorts}
