@@ -46,6 +46,8 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
+    "file-loader": "^0.11.1",
+    "image-webpack-loader": "^3.3.0",
     "jest": "^19.0.2",
     "jest-cli": "^19.0.2",
     "jest-css-modules": "^1.1.0",
@@ -59,7 +61,16 @@
     "webpack": "^2.4.0"
   },
   "jest": {
+    "verbose": true,
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "collectCoverageFrom": [
+      "**/src/**.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/src/configs/**",
+      "!**/src/main.js",
+      "!**/src/App.js"
+    ],
     "transform": {
       ".scss": "<rootDir>/node_modules/jest-css-modules",
       ".*": "<rootDir>/node_modules/babel-jest"

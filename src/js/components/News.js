@@ -6,14 +6,15 @@ const News = props =>
     <img src={props.src} alt="news" />
     <span className="news-title">{props.title}</span>
     <a href={props.href} target="_blank" rel="noreferrer noopener">
-      <i className="fa fa-external-link" />
+      <span> Read More <i className="fa fa-external-link" /></span>
     </a>
   </li>;
 
+/*eslint-disable*/
 News.propTypes = {
-  src: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
+  src: PropTypes.string,
+  title: PropTypes.string,
+  href: PropTypes.string,
 };
 
 module.exports = News;

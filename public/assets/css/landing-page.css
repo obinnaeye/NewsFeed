@@ -438,10 +438,12 @@ a:focus, a:active {
   margin: 5px 0px;
   padding: 20px 15px;
   font-size: 20px;
+  color: white;
 }
 .navbar .navbar-nav > li > a {
   padding: 10px 15px;
   margin: 15px 3px;
+  color: white;
 }
 .navbar .navbar-nav > li > a.btn {
   margin: 15px 3px;

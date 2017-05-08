@@ -4,8 +4,13 @@ import '../../scss/main.scss';
 
 const NewsList = props => <ul className="flex-container">{props.news}</ul>;
 
+/*eslint-disable*/
 NewsList.propTypes = {
-  news: PropTypes.element.isRequired,
+  news: PropTypes.array,
+};
+
+NewsList.defaultProps = {
+  news: []
 };
 
 module.exports = NewsList;

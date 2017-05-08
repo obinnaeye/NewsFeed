@@ -39,34 +39,34 @@ const HomeBody = () =>
             </li>
             <li>
               <a href="/">
-              Company
+              gistMe
               </a>
             </li>
             <li>
-              <a href="/">
+              <a href="https://about.me/nnenanya">
               Portfolio
               </a>
             </li>
             <li>
-              <a href="/">
+              <a href="https://medium.com/@obinnannenanya">
               Blog
               </a>
             </li>
           </ul>
         </nav>
         <div className="social-area pull-right">
-          <a className="btn btn-social btn-facebook btn-simple">
+          <a className="btn btn-social btn-facebook btn-simple" href="https://www.facebook.com/obinnaeye">
             <i className="fa fa-facebook-square" />
           </a>
-          <a className="btn btn-social btn-twitter btn-simple">
+          <a className="btn btn-social btn-twitter btn-simple" href="https://twitter.com/kingobi1">
             <i className="fa fa-twitter" />
           </a>
-          <a className="btn btn-social btn-pinterest btn-simple">
-            <i className="fa fa-pinterest" />
+          <a className="btn btn-social btn-github btn-simple" href="https://github.com/andela-onnenanya">
+            <i className="fa fa-github" />
           </a>
         </div>
         <div className="copyright">
-          &copy; 2016 <a href="/">gisMe</a>, made with love!
+          &copy; 2016 <a href="/">gisMe</a> made with love!
         </div>
       </div>
     </footer>

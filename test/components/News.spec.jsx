@@ -25,6 +25,6 @@ describe('News component', () => {
   
   it('should render child component', () => {
     expect(mount(<News />).find('.fa').length).toBe(1);
-    expect(mount(<News />).find('span').length).toBe(1);
+    expect(mount(<News />).find('span').length).toBe(2);
   });
 });

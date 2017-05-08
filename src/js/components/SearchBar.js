@@ -2,6 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
 
+/*eslint-disable*/
 const SearchBar = props =>
   <div className="search-box">
     <Select
@@ -12,7 +13,7 @@ const SearchBar = props =>
       onChange={props.onchange}
       clearable
     />
-    <span><button onClick={props.onclick}> Search Headlines </button></span>
+    <span className="search-btn"><button onClick={props.onclick}> Search Headlines </button></span>
     <span>
       <select onChange={props.sortAction}>
         {props.sorts}
@@ -20,13 +21,16 @@ const SearchBar = props =>
     </span>
   </div>;
 
+SearchBar.defaultProps = {
+  sources: [],
+  value: {},
+  sorts: []
+};
+
 SearchBar.propTypes = {
-  sources: PropTypes.element.isRequired,
-  value: PropTypes.element.isRequired,
-  onchange: PropTypes.element.isRequired,
-  onclick: PropTypes.element.isRequired,
-  sortAction: PropTypes.element.isRequired,
-  sorts: PropTypes.element.isRequired,
+  sources: PropTypes.array,
+  value: PropTypes.object,
+  sorts: PropTypes.array
 };
 
 
