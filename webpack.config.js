@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   context: path.join(__dirname, 'src'),
   devtool: debug ? 'inline-sourcemap' : null,
-  entry: path.resolve(__dirname, 'src', 'js', 'pages', 'NewsPageEntry.jsx'),
+  entry: path.resolve(__dirname, 'src', 'js', 'pages', 'NewsPageEntry.js'),
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'main.min.js',
@@ -13,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js|.jsx?$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         query: {

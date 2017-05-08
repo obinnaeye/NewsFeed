@@ -68,7 +68,8 @@
       "!**/node_modules/**",
       "!**/vendor/**",
       "!**/src/configs/**",
-      "!**/src/main.js",
+      "!**/src/js/pages/NewsPageEntry.js",
+      "!**/src/js/pages/IndexEntry.js",
       "!**/src/App.js"
     ],
     "transform": {
