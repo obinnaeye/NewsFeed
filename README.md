@@ -3,6 +3,7 @@ gistMe
 ----------------
 
 [![Build Status](https://travis-ci.org/andela-onnenanya/newsfeed.svg?branch=develop)](https://travis-ci.org/andela-onnenanya/newsfeed)
+[![Code Climate][CC img]][Code Climate]
 
 TL,DR: Open App here https://gistmee.herokuapp.com/
 
@@ -74,13 +75,13 @@ To Run Test Coverage, simply run the following on you CLI:
 
  * [Code] 
  * [Travis CI] 
- * [Code Climate]
+ * [Code-Climate]
  * [Coveralls]
  * [NewsAPI]
  
  
 [Code]: https://github.com/andela-onnenanya/newsfeed
 [Travis CI]: https://travis-ci.org/andela-onnenanya/newsfeed/
-[Code Climate]: https://codeclimate.com/github/andela-onnenanya/newsfeed
+[Code-Climate]: https://codeclimate.com/github/andela-onnenanya/newsfeed
 [Coveralls]: https://coveralls.io/github/andela-onnenanya/newsfeed
 [NewsAPI]: https://newsapi.org/
