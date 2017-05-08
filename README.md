@@ -48,7 +48,7 @@ You have to create your own account with the relevant third parties to update th
 * APIKey= Get this from [NewsApi]
 
 
-[Google Sign-In]: (https://developers.google.com/identity/sign-in/web/)
+[Google Sign-In]: https://developers.google.com/identity/sign-in/web/
 
 **Start App**
 Start App with:
