@@ -64,7 +64,13 @@
     "verbose": true,
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
     "collectCoverageFrom": [
-      "**/src/**.{js,jsx}"
+      "**/src/**.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/src/configs/**",
+      "!**/src/js/pages/NewsPageEntry.js",
+      "!**/src/js/pages/IndexEntry.js",
+      "!**/src/App.js"
     ],
     "transform": {
       ".scss": "<rootDir>/node_modules/jest-css-modules",

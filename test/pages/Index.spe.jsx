@@ -1,9 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-console.log("Here");
-
-import Index from '../../src/js/pages/Index';
+import Index from '../../src/js/pages/index';
 /*eslint-disable */
 describe('Index page', () => {
   it('should exist', () => {
