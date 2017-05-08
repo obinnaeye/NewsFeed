@@ -40,12 +40,15 @@ This app require the following environment variables.
 You have to create your own account with the relevant third parties to update the values.
 
 MONGODB_URI=mongodb:
-GOOGLE_ID=Your Google Auth ID from [Google Sign-In] (https://developers.google.com/identity/sign-in/web/)
-GOOGLE_SECRET= see [Google Sign-In] (https://developers.google.com/identity/sign-in/web/) 
-APP_URL=http://localhost:8080/
-authorizationURL= See [Google Sign-In] (https://developers.google.com/identity/sign-in/web/)
-tokenURL= See [Google Sign-In] (https://developers.google.com/identity/sign-in/web/)
-APIKey= Get this from [NewsApi] (https://newsapi.org)
+GOOGLE_ID=Your Google Auth ID from [Google Sign-In]
+GOOGLE_SECRET= see [Google Sign-In]
+APP_URL= Your App Index URL
+authorizationURL= See [Google Sign-In]
+tokenURL= See [Google Sign-In]
+APIKey= Get this from [NewsApi]
+
+[Google Sign-In]: (https://developers.google.com/identity/sign-in/web/)
+[NewsApi]: (https://newsapi.org)
 
 **Start App**
 Start App with:
