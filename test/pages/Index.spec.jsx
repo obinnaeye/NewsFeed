@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+
 import Index from '../../src/js/pages/Index';
 /*eslint-disable */
 describe('Index page', () => {
