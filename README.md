@@ -4,6 +4,7 @@ gistMe
 
 [![Build Status](https://travis-ci.org/andela-onnenanya/newsfeed.svg?branch=develop)](https://travis-ci.org/andela-onnenanya/newsfeed)
 
+TL,DR: Open App here https://gistmee.herokuapp.com/
 
 ## News Update & Newsfeeds ##
 
