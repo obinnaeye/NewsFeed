@@ -1,5 +1,4 @@
 // import mockApiCall from '../../mock/mockApiCall';
-import * as newsActions from '../../src/js/actions/newsActions';
 import Dispatcher from '../../src/js/dispatcher/dispatcher';
 
 describe('NewsAction', () => {
