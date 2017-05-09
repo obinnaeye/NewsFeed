@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import NavBar from '../components/NavBar';
 import SearchBar from '../components/SearchBar';
 import NewsList from '../components/NewsList';
@@ -19,9 +18,9 @@ class NewsPage extends React.Component {
       currentSort: '',
     };
     this.getSource = this.getSource.bind(this);
-    this.sourceObj = [];
     this.getValue = this.getValue.bind(this);
     this.searchNews = this.searchNews.bind(this);
+    this.sortAction = this.sortAction.bind(this);
   }
 
   componentWillMount() {
@@ -38,16 +37,8 @@ class NewsPage extends React.Component {
   }
 
   getSource() {
-    const options = [];
-    const rawSource = [];
-    axios(`https://newsapi.org/v1/sources?apiKey=${process.env.APIKey}`).then((data) => {
-      const source = data.data.sources;
-      source.forEach((item) => {
-        rawSource.push(item);
-        options.push({ value: item.id, label: item.name, sortby: item.sortBysAvailable });
-      });
-    });
-    this.sourceObj = options;
+    const { options } = NewsStore.getSource();
+    const { rawSource } = NewsStore.getSource();
     this.setState({
       sources: options,
       rawSource,
@@ -59,7 +50,7 @@ class NewsPage extends React.Component {
       this.setState({
         currentValue: value,
         sortBy: value.sortby,
-      });
+      }, () => { this.searchNews(); });
     }
   }
 
@@ -89,9 +80,7 @@ class NewsPage extends React.Component {
     return (e) => {
       const source = this.state.currentValue.value;
       const sortby = e.target.value;
-      if (source) {
-        NewsActions.sortNews({ source, sortby });
-      }
+      NewsActions.sortNews({ source, sortby });
       this.setState({
         currentSort: sortby,
       });

@@ -20,6 +20,23 @@ class NewsStore extends EventEmitter {
     return this.articles;
   }
 
+  getSource() {
+    const options = [];
+    const rawSource = [];
+    axios(`https://newsapi.org/v1/sources?apiKey=${process.env.APIKey}`).then((data) => {
+      const source = data.data.sources;
+      source.forEach((item) => {
+        rawSource.push(item);
+        options.push({ value: item.id, label: item.name, sortby: item.sortBysAvailable });
+      });
+    });
+    /*eslint-disable*/
+    return {
+      options,
+      rawSource
+    };
+  }
+
   sortArticles(obj) {
     axios.get(`https://newsapi.org/v1/articles?apiKey=213327409d384371851777e7c7f78dfe&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
       this.articles = data.data.articles;
