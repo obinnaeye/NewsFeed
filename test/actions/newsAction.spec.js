@@ -1,6 +1,7 @@
 import * as newsActions from '../../src/js/actions/newsActions';
 import Dispatcher from '../../src/js/dispatcher/dispatcher';
 
+/*eslint-disable*/
 describe('NewsAction', () => {
   let spy;
   beforeEach(() => {
