@@ -1,8 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow, render } from 'enzyme';
 
+jest.unmock('../../src/js/pages/NewsPage');
+
+import * as newsActions from '../../src/js/actions/newsActions';
 import NewsPage from '../../src/js/pages/NewsPage';
-/*eslint-disable */
+
+// *eslint-disable */
 describe('NewsPage component', () => {
   it('should exist', () => {
     expect(<NewsPage />).toBeDefined();
@@ -40,6 +44,16 @@ describe('NewsPage component', () => {
     const inst = wrapper.instance();
     expect(inst).toBeInstanceOf(NewsPage);
   });
-});
 
+  it('should have an initial state', () => {
+    const wrapper = shallow(<NewsPage />);
+    expect(wrapper.state('sources')).toEqual([]);
+  });
+
+  it('should should be a class', () => {
+    const wrapper = shallow(<NewsPage />);
+    const inst = wrapper.instance();
+    expect(inst).toBeInstanceOf(NewsPage);
+  });
+});
 

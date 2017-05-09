@@ -34,6 +34,6 @@ describe('SearchBar component', () => {
 
   it('should be able to render static contents', () => {
     const text = wrapper.find('button').text();
-    expect(text).toEqual(' Search Headlines ');
+    expect(text).toEqual(' Reload Headlines ');
   });
 });
