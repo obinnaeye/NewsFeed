@@ -1,9 +1,11 @@
 
 gistMe
 ----------------
+
  [![Build Status](https://travis-ci.org/andela-onnenanya/newsfeed.svg?branch=develop)](https://travis-ci.org/andela-onnenanya/newsfeed)
  [![Code Climate](https://codeclimate.com/github/andela-onnenanya/newsfeed/badges/gpa.svg)](https://codeclimate.com/github/andela-onnenanya/newsfeed)
  [![Coverage Status](https://coveralls.io/repos/github/andela-onnenanya/newsfeed/badge.svg?branch=test)](https://coveralls.io/github/andela-onnenanya/newsfeed?branch=test)
+
 
 TL,DR: Open App here https://gistmee.herokuapp.com/
 
