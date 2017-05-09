@@ -1,8 +1,7 @@
+/*eslint-disable */
 import React from 'react';
-import { mount, shallow, render } from 'enzyme';
-
-jest.unmock('../../src/js/pages/NewsPage');
-
+import { mount, shallow } from 'enzyme';
+        
 import * as newsActions from '../../src/js/actions/newsActions';
 import NewsPage from '../../src/js/pages/NewsPage';
 
