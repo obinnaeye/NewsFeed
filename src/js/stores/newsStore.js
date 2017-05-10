@@ -7,6 +7,7 @@ class NewsStore extends EventEmitter {
   constructor() {
     super();
     this.articles = [];
+    this.createArticles = this.createArticles.bind(this);
   }
 
   createArticles(obj) {

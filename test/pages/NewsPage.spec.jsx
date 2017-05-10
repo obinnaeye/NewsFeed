@@ -49,7 +49,7 @@ describe('NewsPage component', () => {
     expect(wrapper.state('sources')).toEqual([]);
   });
 
-  it('should should be a class', () => {
+  it('should be a class', () => {
     const wrapper = shallow(<NewsPage />);
     const inst = wrapper.instance();
     expect(inst).toBeInstanceOf(NewsPage);
