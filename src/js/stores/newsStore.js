@@ -6,12 +6,15 @@ import dispatcher from '../dispatcher/dispatcher';
 class NewsStore extends EventEmitter {
   constructor() {
     super();
+    this.newsAPI = 'https://newsapi.org/v1/articles';
+    this.sourceAPI = 'https://newsapi.org/v1/sources';
     this.articles = [];
     this.createArticles = this.createArticles.bind(this);
   }
 
   createArticles(obj) {
-    axios.get(`https://newsapi.org/v1/articles?apiKey=213327409d384371851777e7c7f78dfe&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
+    console.log(process.env.APIKey);
+    axios.get(`${this.newsAPI}?apiKey=${process.env.APIKey}&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
       this.articles = data.data.articles;
       this.emit('change');
     });
@@ -24,7 +27,7 @@ class NewsStore extends EventEmitter {
   getSource() {
     const options = [];
     const rawSource = [];
-    axios(`https://newsapi.org/v1/sources?apiKey=${process.env.APIKey}`).then((data) => {
+    axios(`${this.sourceAPI}`).then((data) => {
       const source = data.data.sources;
       source.forEach((item) => {
         rawSource.push(item);
@@ -39,7 +42,7 @@ class NewsStore extends EventEmitter {
   }
 
   sortArticles(obj) {
-    axios.get(`https://newsapi.org/v1/articles?apiKey=213327409d384371851777e7c7f78dfe&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
+    axios.get(`${this.newsAPI}?apiKey=${process.env.APIKey}&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
       this.articles = data.data.articles;
       this.emit('change');
     });
