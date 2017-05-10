@@ -29,8 +29,9 @@ Examples of what you can do are:
 </p>
 
 
-## GistMe Framework ##
 
+
+## To Contribute or Run the App Locally ##
 
 **Dependencies**
 All the dependencies for this app is located in the package.json file.
@@ -72,6 +73,7 @@ To Run Test Coverage, simply run the following on you CLI:
 
  * Nnenanya Obinna K (Software Developer at andela.com)
  * Adebayo Adesanya (Learning Facilitator at andela.com)
+ * Uyiosa Enabulele (Software Developer at andela.com)
 
 **Resources**
 
@@ -87,3 +89,31 @@ To Run Test Coverage, simply run the following on you CLI:
 [Code Climate]: https://codeclimate.com/github/andela-onnenanya/newsfeed
 [Coveralls]: https://coveralls.io/github/andela-onnenanya/newsfeed
 [NewsAPI]: https://newsapi.org/
+
+
+#Limitations#
+
+The basic limitations of the app lie on:
+
+**The News API**
+With the API design, 
+
+* News articles are limited to a maximum of ten (10) only.
+* Article images are not guarnteed; some articles come with broken image links.
+* 
+
+**Hosting**
+
+* This app is hosted on heroku with a free account which makes the loading pretty slow.
+
+
+#Challenges#
+One of the main challenges faced in building this app is dependency management. We had a couple of cases where some
+modules did not meet peer dependencies. One of such cases is the react-select module which we use for the search auto-complete.
+The module used a lower version of react which violated most of the airbnb styling rules integrated in the project.
+We highly recommend that if you wish to use this app locally, you may consider checking out a better auto-complete module that is compatible with your dependencies.
+
+#Credits#
+* Andela Family
+* All Cohort 25 fellows
+* Newsapi.org
