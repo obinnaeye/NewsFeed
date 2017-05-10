@@ -102,8 +102,8 @@ class NewsPage extends React.Component {
           value={this.state.currentValue}
           onchange={this.getValue}
           onclick={this.searchNews}
-          sorts={this.getSorts()}
-          sortAction={this.sortAction()}
+          sorts={this.getSorts}
+          sortAction={this.sortAction}
         />
         <NewsList news={NewsComponents} />
       </div>
