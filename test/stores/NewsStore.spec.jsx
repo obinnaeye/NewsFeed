@@ -1,4 +1,3 @@
-// import Articles from '../../mock/article.json';
 import * as NewsStore from '../../src/js/stores/newsStore';
 import Dispatcher from '../../src/js/dispatcher/dispatcher';
 
