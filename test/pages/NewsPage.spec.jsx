@@ -22,7 +22,7 @@ describe('NewsPage component', () => {
 
   it('should contain only three elements as direct children', () => {
     const wrapper = mount(<NewsPage />);
-    expect(wrapper.children().length).toEqual(3);
+    expect(wrapper.children().length).toEqual(4);
   });
 
   it('should accept props', () => {

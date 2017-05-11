@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* eslint-disable react/jsx-filename-extension */
 /**
  * @param {void}
  * @return {element} home header div
@@ -24,7 +25,7 @@ const HomeHeader = () =>
               <img src="assets/img/new_logo.png" alt="gistMe Logo" />
             </div>
             <div className="brand">
-                gitMe
+                gistMe
             </div>
           </div>
         </a>

@@ -5,6 +5,7 @@ import NewsList from '../components/NewsList';
 import News from '../components/News';
 import * as NewsActions from '../actions/newsActions';
 import NewsStore from '../stores/newsStore';
+import Footer from '../components/Footer';
 
 /**
  * @class NewsPage
@@ -149,6 +150,7 @@ class NewsPage extends React.Component {
           sortAction={this.sortAction()}
         />
         <NewsList news={NewsComponents} />
+        <Footer />
       </div>
     );
   }
