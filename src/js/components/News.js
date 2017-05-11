@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 const News = props =>
   <li className="flex-item">
     <img src={props.src} alt="news" />
-    <span className="news-title">{props.title}</span>
+    <span className="news-title">{props.title}</span><br />
     <a href={props.href} target="_blank" rel="noreferrer noopener">
       <span> Read More <i className="fa fa-external-link" /></span>
     </a>
