@@ -101,7 +101,6 @@ With the API design,
 
 * News articles are limited to a maximum of ten (10) only.
 * Article images are not guarnteed; some articles come with broken image links.
-* 
 
 **Hosting**
 

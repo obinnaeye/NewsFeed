@@ -53,8 +53,8 @@ app.get('/news', (req, res) => {
   }
 });
 
-// Google+ login route
 
+// /****Google+ login route****/
 // authenticate user on google
 app.route('/auth/google')
   .get(passport.authenticate('google', { scope: ['profile', 'email'] }));
@@ -76,4 +76,4 @@ app.route('/logout')
 
 /*eslint-disable*/
 app.listen(process.env.PORT || 8080);
-console.log(`${process.env.PORT || 8080} is the magic port`);
+console.log(`Server started on port ${process.env.PORT || 8080}`);
