@@ -127,8 +127,14 @@ class NewsPage extends React.Component {
   render() {
     const news = this.state.articles;
     const NewsComponents = news.map((item, i) => {
+      let title;
+      if (item.title.length > 60) {
+        title = `${item.title.slice(0, 56)}...`;
+      } else {
+        title = item.title;
+      }
       const key = i;
-      return <News key={key} title={item.title} href={item.url} src={item.urlToImage} />;
+      return <News key={key} title={title} href={item.url} src={item.urlToImage} />;
     });
 
     return (
