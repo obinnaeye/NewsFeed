@@ -1,6 +1,7 @@
 import React from 'react';
 import Logout from './Logout';
 
+/* eslint-disable react/jsx-filename-extension */
 /**
  * @param {void}
  * @return {element} Navigations-bar
@@ -10,7 +11,14 @@ const NavBar = () =>
     <nav className="navbar navbar-inverse">
       <div className="container-fluid">
         <div className="navbar-header">
-          <a className="navbar-brand" href="/">gistMe</a>
+          <div className="logo-container">
+            <div className="logo">
+              <img src="assets/img/new_logo.png" alt="gistMe Logo" />
+            </div>
+            <div className="brand">
+                gistMe
+            </div>
+          </div>
         </div>
         <ul className="nav navbar-nav navbar-right">
           <img
