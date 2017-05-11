@@ -30,7 +30,7 @@ SearchBar.defaultProps = {
 SearchBar.propTypes = {
   sources: PropTypes.array,
   value: PropTypes.object,
-  sorts: PropTypes.array
+  sorts: PropTypes.func
 };
 
 

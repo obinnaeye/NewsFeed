@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import dispatcher from '../dispatcher/dispatcher';
 
+require('dotenv').config();
+
 class NewsStore extends EventEmitter {
   constructor() {
     super();
@@ -13,7 +15,6 @@ class NewsStore extends EventEmitter {
   }
 
   createArticles(obj) {
-    console.log(process.env.APIKey);
     axios.get(`${this.newsAPI}?apiKey=${process.env.APIKey}&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
       this.articles = data.data.articles;
       this.emit('change');
@@ -28,10 +29,10 @@ class NewsStore extends EventEmitter {
     const options = [];
     const rawSource = [];
     axios(`${this.sourceAPI}`).then((data) => {
-      const source = data.data.sources;
-      source.forEach((item) => {
-        rawSource.push(item);
-        options.push({ value: item.id, label: item.name, sortby: item.sortBysAvailable });
+      const { sources } = data.data;
+      sources.forEach((source) => {
+        rawSource.push(source);
+        options.push({ value: source.id, label: source.name, sortby: source.sortBysAvailable });
       });
     });
     /*eslint-disable*/

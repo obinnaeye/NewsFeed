@@ -1,6 +1,11 @@
-const debug = process.env.NODE_ENV !== 'production';
+const DotEnvPlugin = require('dotenv-webpack');
 const webpack = require('webpack');
 const path = require('path');
+
+const debug = process.env.NODE_ENV !== 'production';
+const dotEnvPlugin = new DotEnvPlugin({
+  path: '.env',
+});
 
 module.exports = {
   context: path.join(__dirname, 'src'),
@@ -37,10 +42,11 @@ module.exports = {
       { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=/img/[name].[ext]' },
     ],
   },
-  plugins: debug ? [] : [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+  plugins: [
+    dotEnvPlugin,
   ],
+  node: {
+    fs: 'empty',
+  },
 };
 
