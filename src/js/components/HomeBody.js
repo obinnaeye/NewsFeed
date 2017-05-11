@@ -1,6 +1,10 @@
 import React from 'react';
 import Login from './Login';
 
+/**
+ * @param {void}
+ * @return {element} index main div
+ */
 const HomeBody = () =>
   <div className="wrapper">
     <div className="parallax filter-gradient blue" data-color="blue">

@@ -3,32 +3,63 @@ import axios from 'axios';
 
 import dispatcher from '../dispatcher/dispatcher';
 
+require('dotenv').config();
+
+/**
+ * @class NewsStore
+ * @extends {EventEmitter}
+ */
 class NewsStore extends EventEmitter {
+  /**
+   * Creates an instance of NewsStore.
+   *
+   * @memberOf NewsStore
+   */
   constructor() {
     super();
+    this.newsAPI = 'https://newsapi.org/v1/articles';
+    this.sourceAPI = 'https://newsapi.org/v1/sources';
     this.articles = [];
     this.createArticles = this.createArticles.bind(this);
   }
 
+  /**
+   *
+   * @param {any} obj
+   *
+   * @memberOf NewsStore
+   */
   createArticles(obj) {
-    axios.get(`https://newsapi.org/v1/articles?apiKey=213327409d384371851777e7c7f78dfe&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
+    axios.get(`${this.newsAPI}?apiKey=${process.env.APIKey}&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
       this.articles = data.data.articles;
       this.emit('change');
     });
   }
 
+  /**
+   *
+   * @returns (object)
+   *
+   * @memberOf NewsStore
+   */
   getArticles() {
     return this.articles;
   }
 
+  /**
+   *
+   * @returns (object)
+   *
+   * @memberOf NewsStore
+   */
   getSource() {
     const options = [];
     const rawSource = [];
-    axios(`https://newsapi.org/v1/sources?apiKey=${process.env.APIKey}`).then((data) => {
-      const source = data.data.sources;
-      source.forEach((item) => {
-        rawSource.push(item);
-        options.push({ value: item.id, label: item.name, sortby: item.sortBysAvailable });
+    axios(`${this.sourceAPI}`).then((data) => {
+      const { sources } = data.data;
+      sources.forEach((source) => {
+        rawSource.push(source);
+        options.push({ value: source.id, label: source.name, sortby: source.sortBysAvailable });
       });
     });
     /*eslint-disable*/
@@ -38,13 +69,24 @@ class NewsStore extends EventEmitter {
     };
   }
 
+  /**
+   * @param {object} obj 
+   * 
+   * @memberOf NewsStore
+   */
   sortArticles(obj) {
-    axios.get(`https://newsapi.org/v1/articles?apiKey=213327409d384371851777e7c7f78dfe&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
+    axios.get(`${this.newsAPI}?apiKey=${process.env.APIKey}&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
       this.articles = data.data.articles;
       this.emit('change');
     });
   }
  /*eslint-disable*/
+  /**
+   * @param {any} action 
+   * @returns {any}
+   * 
+   * @memberOf NewsStore
+   */
   handleActions(action) {
     /*eslint-enable*/
     switch (action.type) {

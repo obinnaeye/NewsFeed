@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../scss/main.scss';
 
+/**
+ * @param {any} props
+ * @return {element} list of all articles
+ */
 const NewsList = props => <ul className="flex-container">{props.news}</ul>;
 
 /*eslint-disable*/
