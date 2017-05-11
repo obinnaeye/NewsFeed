@@ -20,7 +20,7 @@ require('./config/passport')(passport);
 mongoose.connect(MONGODB_URI);
 
 const sess = {
-  secret: 'keyboard cat',
+  secret: process.env.sessionSecret,
   resave: false,
   saveUninitialized: false,
   cookie: {},
@@ -41,18 +41,12 @@ app.get('/', (req, res) => {
   if (req.isAuthenticated()) {
     res.redirect('/news');
   } else {
-    /*eslint-disable*/
-    console.log("Home Called!");
-    /*eslint-enable*/
     res.sendFile(path.resolve(__dirname, 'public', 'home.html'));
   }
 });
 
 app.get('/news', (req, res) => {
   if (req.isAuthenticated()) {
-    /*eslint-disable*/
-    console.log("News Called!");
-    /*eslint-enable*/
     res.sendFile(path.resolve(__dirname, 'public', 'newsPage.html'));
   } else {
     res.redirect('/');

@@ -51,6 +51,7 @@ You have to create your own account with the relevant third parties to update th
 * authorizationURL= See [Google Sign-In]
 * tokenURL= See [Google Sign-In]
 * APIKey= Get this from [NewsApi]
+* sessionSecret= Any secrete for your express-session
 
 
 [Google Sign-In]: https://developers.google.com/identity/sign-in/web/
