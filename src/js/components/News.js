@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * @param {any} props
+ * @return {element} article as li element
+ */
 const News = props =>
   <li className="flex-item">
     <img src={props.src} alt="news" />

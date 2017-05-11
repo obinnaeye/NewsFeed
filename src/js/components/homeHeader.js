@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * @param {void}
+ * @return {element} home header div
+ */
 const HomeHeader = () =>
   <nav className="navbar navbar-transparent navbar-top" role="navigation">
     <div className="container">

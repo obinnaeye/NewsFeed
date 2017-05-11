@@ -1,6 +1,5 @@
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('../model/user');
-const configAuth = require('./auth');
 
 module.exports = (passport) => {
   passport.serializeUser((user, done) => {
@@ -14,11 +13,11 @@ module.exports = (passport) => {
   });
 
   passport.use(new GoogleStrategy({
-    authorizationURL: configAuth.googleAuth.authorizationURL,
-    tokenURL: configAuth.googleAuth.tokenURL,
-    clientID: configAuth.googleAuth.clientID,
-    clientSecret: configAuth.googleAuth.clientSecret,
-    callbackURL: configAuth.googleAuth.callbackURL,
+    authorizationURL: process.env.authorizationURL,
+    tokenURL: process.env.tokenURL,
+    clientID: process.env.GOOGLE_ID,
+    clientSecret: process.env.GOOGLE_SECRET,
+    callbackURL: `${process.env.APP_URL}auth/google/callback`,
   },
   (accessToken, refreshToken, profile, done) => {
     process.nextTick(() => {

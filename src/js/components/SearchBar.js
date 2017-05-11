@@ -3,6 +3,10 @@ import Select from 'react-select';
 import PropTypes from 'prop-types';
 
 /*eslint-disable*/
+/**
+ * @param {any} props 
+ * @return {element} search bar
+ */
 const SearchBar = props =>
   <div className="search-box">
     <Select
@@ -30,7 +34,7 @@ SearchBar.defaultProps = {
 SearchBar.propTypes = {
   sources: PropTypes.array,
   value: PropTypes.object,
-  sorts: PropTypes.func
+  sorts: PropTypes.array
 };
 
 

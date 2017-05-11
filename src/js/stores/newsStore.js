@@ -5,7 +5,16 @@ import dispatcher from '../dispatcher/dispatcher';
 
 require('dotenv').config();
 
+/**
+ * @class NewsStore
+ * @extends {EventEmitter}
+ */
 class NewsStore extends EventEmitter {
+  /**
+   * Creates an instance of NewsStore.
+   *
+   * @memberOf NewsStore
+   */
   constructor() {
     super();
     this.newsAPI = 'https://newsapi.org/v1/articles';
@@ -14,6 +23,12 @@ class NewsStore extends EventEmitter {
     this.createArticles = this.createArticles.bind(this);
   }
 
+  /**
+   *
+   * @param {any} obj
+   *
+   * @memberOf NewsStore
+   */
   createArticles(obj) {
     axios.get(`${this.newsAPI}?apiKey=${process.env.APIKey}&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
       this.articles = data.data.articles;
@@ -21,10 +36,22 @@ class NewsStore extends EventEmitter {
     });
   }
 
+  /**
+   *
+   * @returns (object)
+   *
+   * @memberOf NewsStore
+   */
   getArticles() {
     return this.articles;
   }
 
+  /**
+   *
+   * @returns (object)
+   *
+   * @memberOf NewsStore
+   */
   getSource() {
     const options = [];
     const rawSource = [];
@@ -42,6 +69,11 @@ class NewsStore extends EventEmitter {
     };
   }
 
+  /**
+   * @param {object} obj 
+   * 
+   * @memberOf NewsStore
+   */
   sortArticles(obj) {
     axios.get(`${this.newsAPI}?apiKey=${process.env.APIKey}&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
       this.articles = data.data.articles;
@@ -49,6 +81,12 @@ class NewsStore extends EventEmitter {
     });
   }
  /*eslint-disable*/
+  /**
+   * @param {any} action 
+   * @returns {any}
+   * 
+   * @memberOf NewsStore
+   */
   handleActions(action) {
     /*eslint-enable*/
     switch (action.type) {
