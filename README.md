@@ -92,11 +92,12 @@ To Run Test Coverage, simply run the following on you CLI:
 [NewsAPI]: https://newsapi.org/
 
 
-#Limitations#
+## Limitations ##
 
 The basic limitations of the app lie on:
 
 **The News API**
+
 With the API design, 
 
 * News articles are limited to a maximum of ten (10) only.
@@ -107,13 +108,13 @@ With the API design,
 * This app is hosted on heroku with a free account which makes the loading pretty slow.
 
 
-#Challenges#
+## Challenges ##
 One of the main challenges faced in building this app is dependency management. We had a couple of cases where some
 modules did not meet peer dependencies. One of such cases is the react-select module which we use for the search auto-complete.
 The module used a lower version of react which violated most of the airbnb styling rules integrated in the project.
 We highly recommend that if you wish to use this app locally, you may consider checking out a better auto-complete module that is compatible with your dependencies.
 
-#Credits#
+## Credits ##
 * Andela Family
 * All Cohort 25 fellows
 * Newsapi.org

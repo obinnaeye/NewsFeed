@@ -35,9 +35,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {
-    "babel-core": "^6.24.1",
     "babel-jest": "^19.0.0",
-    "babel-loader": "^6.4.1",
     "coveralls": "^2.13.1",
     "css-loader": "^0.28.1",
     "enzyme": "^2.8.2",
