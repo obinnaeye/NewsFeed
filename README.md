@@ -97,6 +97,7 @@ To Run Test Coverage, simply run the following on you CLI:
 The basic limitations of the app lie on:
 
 **The News API**
+
 With the API design, 
 
 * News articles are limited to a maximum of ten (10) only.
