@@ -80,6 +80,7 @@
     "watch": "./node_modules/.bin/webpack -d --watch",
     "build": "./node_modules/.bin/webpack",
     "deploy": "npm run build && npm start",
+    "postinstall": "./node_modules/.bin/webpack",
     "dev": "webpack-dev-server --content-base src --inline --hot",
     "test": "nyc jest",
     "start": "node server.js",
