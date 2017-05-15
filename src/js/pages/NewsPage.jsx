@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/NavBar.jsx';
 import SearchBar from '../components/SearchBar';
 import NewsList from '../components/NewsList';
 import News from '../components/News';
