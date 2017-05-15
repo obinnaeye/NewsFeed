@@ -2,7 +2,6 @@ import React from 'react';
 import Login from './Login';
 import Footer from './Footer';
 
-/* eslint-disable react/jsx-filename-extension */
 /**
  * @param {void}
  * @return {element} index main div

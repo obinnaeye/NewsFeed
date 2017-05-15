@@ -1,7 +1,7 @@
 import * as NewsStore from '../../src/js/stores/newsStore';
 import Dispatcher from '../../src/js/dispatcher/dispatcher';
 
-/*eslint-disable*/
+/* eslint-disable no-undef */
 jest.mock('../../src/js/dispatcher/dispatcher');
 jest.dontMock('../../src/js/stores/newsStore');
 

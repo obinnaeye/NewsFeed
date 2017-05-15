@@ -1,19 +1,20 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import SearchBar from '../../src/js/components/SearchBar';
-/*eslint-disable */
+
+/* eslint-disable no-undef */
 describe('SearchBar component', () => {
   const defaultFun = demo => demo;
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(<SearchBar onchange= {defaultFun}/>);
-  })
+    wrapper = mount(<SearchBar onchange={defaultFun} />);
+  });
 
   it('should exist', () => {
     expect(SearchBar).toBeDefined();
   });
 
-  it('should mount in a full DOM', function() {
+  it('should mount in a full DOM', () => {
     expect(wrapper.find('.search-box').length).toBe(1);
   });
 

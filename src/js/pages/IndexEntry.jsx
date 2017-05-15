@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Index from './Index';
+import Index from './index';
 
 /*eslint-disable*/
 ReactDOM.render(

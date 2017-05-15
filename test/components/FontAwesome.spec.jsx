@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-
 import FontAwesome from '../../src/js/components/FontAwesome';
-/*eslint-disable */
+
+/* eslint-disable no-undef */
 describe('FontAwesome component', () => {
   it('should exist', () => {
     expect(<FontAwesome />).toBeDefined();

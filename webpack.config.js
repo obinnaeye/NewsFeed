@@ -1,30 +1,30 @@
 const DotEnvPlugin = require('dotenv-webpack');
-const webpack = require('webpack');
-const path = require('path');
 
-const debug = process.env.NODE_ENV !== 'production';
 const dotEnvPlugin = new DotEnvPlugin({
   path: '.env',
 });
 
+const debug = process.env.NODE_ENV !== 'production';
+const webpack = require('webpack');
+const path = require('path');
+
 module.exports = {
   context: path.join(__dirname, 'src'),
   devtool: debug ? 'inline-sourcemap' : null,
-  entry: path.resolve(__dirname, 'src', 'js', 'pages', 'NewsPageEntry.js'),
+  entry: {
+    index: path.resolve(__dirname, 'src', 'js', 'pages', 'IndexEntry.jsx'),
+    main: path.resolve(__dirname, 'src', 'js', 'pages', 'NewsPageEntry.jsx'),
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'main.min.js',
+    filename: '[name].js',
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015', 'stage-0'],
-          plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
-        },
+        use: 'babel-loader',
       },
       {
         test: /\.css$/,
@@ -42,11 +42,13 @@ module.exports = {
       { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=/img/[name].[ext]' },
     ],
   },
-  plugins: [
-    dotEnvPlugin,
-  ],
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
+  },
   node: {
     fs: 'empty',
   },
+  plugins: [
+    dotEnvPlugin,
+  ],
 };
-

@@ -62,7 +62,7 @@ class NewsStore extends EventEmitter {
         options.push({ value: source.id, label: source.name, sortby: source.sortBysAvailable });
       });
     });
-    /*eslint-disable*/
+    /* eslint-disable comma-dangle */
     return {
       options,
       rawSource
@@ -70,8 +70,8 @@ class NewsStore extends EventEmitter {
   }
 
   /**
-   * @param {object} obj 
-   * 
+   * @param {object} obj
+   *
    * @memberOf NewsStore
    */
   sortArticles(obj) {
@@ -80,15 +80,14 @@ class NewsStore extends EventEmitter {
       this.emit('change');
     });
   }
- /*eslint-disable*/
   /**
-   * @param {any} action 
+   * @param {any} action
    * @returns {any}
-   * 
+   *
    * @memberOf NewsStore
    */
+   /* eslint-disable consistent-return */
   handleActions(action) {
-    /*eslint-enable*/
     switch (action.type) {
       case 'GET_NEWS': {
         this.createArticles(action.obj);

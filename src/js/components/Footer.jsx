@@ -1,6 +1,5 @@
 import React from 'react';
 
-/* eslint-disable react/jsx-filename-extension */
 const Footer = () =>
   <footer className="footer">
     <div className="container">

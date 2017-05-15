@@ -67,8 +67,8 @@
       "!**/node_modules/**",
       "!**/vendor/**",
       "!**/src/configs/**",
-      "!**/src/js/pages/NewsPageEntry.js",
-      "!**/src/js/pages/IndexEntry.js",
+      "!**/src/js/pages/NewsPageEntry.jsx",
+      "!**/src/js/pages/IndexEntry.jsx",
       "!**/src/App.js"
     ],
     "transform": {
@@ -79,6 +79,7 @@
   "scripts": {
     "watch": "./node_modules/.bin/webpack -d --watch",
     "build": "./node_modules/.bin/webpack",
+    "deploy": "npm run build && npm start",
     "dev": "webpack-dev-server --content-base src --inline --hot",
     "test": "nyc jest",
     "start": "node server.js",

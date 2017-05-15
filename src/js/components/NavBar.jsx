@@ -1,7 +1,6 @@
 import React from 'react';
 import Logout from './Logout';
 
-/* eslint-disable react/jsx-filename-extension */
 /**
  * @param {void}
  * @return {element} Navigations-bar

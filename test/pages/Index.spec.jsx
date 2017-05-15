@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-
 import Index from '../../src/js/pages/index';
-/*eslint-disable */
+
+/* eslint-disable no-undef */
 describe('Index page', () => {
   it('should exist', () => {
     expect(<Index />).toBeDefined();

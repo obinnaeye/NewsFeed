@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-
 import NewsList from '../../src/js/components/NewsList';
-/*eslint-disable */
+
+/* eslint-disable no-undef */
 describe('NewsList component', () => {
   it('should exist', () => {
     expect(NewsList).toBeDefined();

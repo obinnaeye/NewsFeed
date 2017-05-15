@@ -2,7 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import NavBar from '../../src/js/components/NavBar';
-/*eslint-disable */
+
+/* eslint-disable no-undef */
 describe('NavBar component', () => {
   it('should exist', () => {
     expect(<NavBar />).toBeDefined();
