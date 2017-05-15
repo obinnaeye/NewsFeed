@@ -1,6 +1,5 @@
 import React from 'react';
 
-/* eslint-disable react/jsx-filename-extension */
 /**
  * @param {void}
  * @return {element} home header div

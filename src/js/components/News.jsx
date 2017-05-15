@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/* eslint-disable react/jsx-filename-extension */
 /**
  * @param {any} props
  * @return {element} article as li element

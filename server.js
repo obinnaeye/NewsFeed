@@ -8,6 +8,20 @@ const MongoStore = require('connect-mongo')(session);
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
+// /* eslint-disable comma-dangle */
+// const options = {
+//   server: {
+//     socketOptions: {
+//       keepAlive: 300000, connectTimeoutMS: 30000
+//     }
+//   },
+//   replset: {
+//     socketOptions: {
+//       keepAlive: 300000,
+//       connectTimeoutMS: 30000
+//     }
+//   }
+// };
 
 const app = express();
 // middleware for static files

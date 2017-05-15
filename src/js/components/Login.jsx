@@ -2,7 +2,6 @@ import React from 'react';
 import FontAwesome from './FontAwesome';
 import '../../scss/main.scss';
 
-/* eslint-disable react/jsx-filename-extension */
 /**
  * @param {void}
  * @return {element} Login-button

@@ -1,7 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import HomeHeader from '../../src/js/components/homeHeader';
-/*eslint-disable */
+
+/* eslint-disable no-undef */
 describe('HomeHeader component', () => {
   it('should exist', () => {
     expect(<HomeHeader />).toBeDefined();

@@ -1,7 +1,6 @@
 import React from 'react';
 import FontAwesome from './FontAwesome';
 
-/* eslint-disable react/jsx-filename-extension */
 /**
  * @param {void}
  * @return {element} Logout-button
