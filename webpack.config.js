@@ -1,8 +1,10 @@
-const DotEnvPlugin = require('dotenv-webpack');
+require('dotenv').config();
+const webpack = require('webpack');
 const path = require('path');
 
-const dotEnvPlugin = new DotEnvPlugin({
-  path: '.env',
+
+const envsDefinePlugin = new webpack.DefinePlugin({
+  'process.env.APIKey': JSON.stringify(process.env.APIKey)
 });
 
 const debug = process.env.NODE_ENV !== 'production';
@@ -44,10 +46,7 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx'],
   },
-  node: {
-    fs: 'empty',
-  },
   plugins: [
-    dotEnvPlugin,
+    envsDefinePlugin,
   ],
 };
