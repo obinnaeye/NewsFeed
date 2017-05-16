@@ -12,7 +12,7 @@ const debug = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   context: path.join(__dirname, 'src'),
-  devtool: debug ? 'inline-sourcemap' : null,
+  devtool: debug ? 'inline-sourcemap' : 'cheap-eval-source-map',
   entry: {
     index: path.resolve(__dirname, 'src', 'js', 'pages', 'IndexEntry.jsx'),
     main: path.resolve(__dirname, 'src', 'js', 'pages', 'NewsPageEntry.jsx'),
