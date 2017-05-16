@@ -38,8 +38,8 @@
     "react-select": "^1.0.0-rc.3",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
-    "webpack-dev-server": "^1.14.1",
-    "webpack": "^2.4.0"
+    "webpack": "^2.4.0",
+    "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {
     "babel-jest": "^19.0.0",
