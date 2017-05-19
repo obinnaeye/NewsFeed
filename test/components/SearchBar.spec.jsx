@@ -1,17 +1,17 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import SearchBar from '../../src/js/components/SearchBar';
+import SourceBar from '../../src/js/components/SourceBar';
 
 /* eslint-disable no-undef */
-describe('SearchBar component', () => {
+describe('SourceBar component', () => {
   const defaultFun = demo => demo;
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(<SearchBar onchange={defaultFun} />);
+    wrapper = mount(<SourceBar onchange={defaultFun} />);
   });
 
   it('should exist', () => {
-    expect(SearchBar).toBeDefined();
+    expect(SourceBar).toBeDefined();
   });
 
   it('should mount in a full DOM', () => {
@@ -23,7 +23,7 @@ describe('SearchBar component', () => {
   });
 
   it('should accept props', () => {
-    const wrapper2 = mount(<SearchBar test="props" />);
+    const wrapper2 = mount(<SourceBar test="props" />);
     expect(wrapper2.props().test).toEqual('props');
     wrapper2.setProps({ test: 'props2' });
     expect(wrapper2.props().test).toEqual('props2');

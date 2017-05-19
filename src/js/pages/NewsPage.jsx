@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
-import SearchBar from '../components/SearchBar';
+import SourceBar from '../components/SourceBar';
 import NewsList from '../components/NewsList';
 import News from '../components/News';
 import NewsActions from '../actions/NewsActions';
@@ -148,7 +148,7 @@ class NewsPage extends React.Component {
     return (
       <div className="wrapper">
         <NavBar />
-        <SearchBar
+        <SourceBar
           sources={this.state.sources}
           value={this.state.currentValue}
           onchange={this.getValue}

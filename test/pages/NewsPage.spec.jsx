@@ -34,7 +34,7 @@ describe('NewsPage component', () => {
   it('should render child component', () => {
     expect(mount(<NewsPage />).find('NavBar').length).toBe(1);
     expect(mount(<NewsPage />).find('NewsList').length).toBe(1);
-    expect(mount(<NewsPage />).find('SearchBar').length).toBe(1);
+    expect(mount(<NewsPage />).find('SourceBar').length).toBe(1);
   });
 
   it('should be an object and can have instances', () => {
