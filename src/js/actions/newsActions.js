@@ -14,6 +14,12 @@ const NewsActions = {
       obj,
     });
   },
+
+  getSource: () => {
+    dispatcher.dispatch({
+      type: 'GET_SOURCE',
+    });
+  },
 };
 
 export default NewsActions;
