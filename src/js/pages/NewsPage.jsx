@@ -28,7 +28,6 @@ class NewsPage extends React.Component {
       sortBy: ['top', 'latest'],
       currentSort: '',
     };
-    //this.getSource = this.getSource.bind(this);
     this.getValue = this.getValue.bind(this);
     this.searchNews = this.searchNews.bind(this);
     this.sortAction = this.sortAction.bind(this);
