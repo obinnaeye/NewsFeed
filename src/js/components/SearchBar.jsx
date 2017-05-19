@@ -19,6 +19,7 @@ const SearchBar = props =>
     />
     <span className="search-btn"><button onClick={props.onclick}> Reload Headlines </button></span>
     <span>
+      <span className="sort-by"><b>Sort By: </b></span>
       <select onChange={props.sortAction}>
         {props.sorts}
       </select>

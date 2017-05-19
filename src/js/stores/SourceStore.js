@@ -44,7 +44,6 @@ class SourceStore extends EventEmitter {
       options,
       rawSource
     };
-    console.log("store getsource", this.sources)
     this.emit('source');
   }
 

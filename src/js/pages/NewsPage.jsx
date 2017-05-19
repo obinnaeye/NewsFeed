@@ -134,7 +134,7 @@ class NewsPage extends React.Component {
     });
 
     return (
-      <div>
+      <div className="wrapper">
         <NavBar />
         <SearchBar
           sources={this.state.sources}
