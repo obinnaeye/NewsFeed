@@ -50,7 +50,8 @@ To see test coverage, use  `npm run coverage`
 ```
 
 ### Limitations of the project
-    The basic limitations of the app lie on:
+
+The basic limitations of the app lie on:
 
 **The News API**
 
