@@ -42,7 +42,7 @@ $ npm start
 ```
   **_Testing_**
 
-```javascript
+```
 The test specs for this app uses Jest/Enzyme. 
 Use <code>npm test<code> to run local tests.
 To see test coverage, use `npm run coverage`
