@@ -36,7 +36,6 @@ class NewsPage extends React.Component {
   }
 
   componentWillMount() {
-    console.log(SourceStore, NewsStore);
     NewsStore.on('change', () => {
       this.setState({
         articles: NewsStore.getArticles(),
@@ -44,7 +43,6 @@ class NewsPage extends React.Component {
     });
 
     SourceStore.on('source', () => {
-      console.log("Goet Sourece");
       const { options, rawSource } = SourceStore.sources;
       this.setState({
         sources: options,
@@ -57,18 +55,6 @@ class NewsPage extends React.Component {
     NewsActions.getSource();
     NewsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });
   }
-
-  /**
-   * @memberOf NewsPage
-   * @returns {void}
-   */
-  // getSource() {
-  //   const { options, rawSource } = NewsStore.getSource();
-  //   this.setState({
-  //     sources: options,
-  //     rawSource,
-  //   }, () => {});
-  // }
 
   /**
    * @param {object} value
