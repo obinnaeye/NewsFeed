@@ -4,24 +4,24 @@ gistMe
 
  [![Build Status](https://travis-ci.org/andela-onnenanya/newsfeed.svg?branch=develop)](https://travis-ci.org/andela-onnenanya/newsfeed)
  [![Code Climate](https://codeclimate.com/github/andela-onnenanya/newsfeed/badges/gpa.svg)](https://codeclimate.com/github/andela-onnenanya/newsfeed)
- [![Coverage Status](https://coveralls.io/repos/github/andela-onnenanya/newsfeed/badge.png)](https://coveralls.io/github/andela-onnenanya/newsfeed)
+ [![Coverage Status](https://coveralls.io/repos/github/andela-onnenanya/newsfeed/badge.svg)](https://coveralls.io/github/andela-onnenanya/newsfeed)
 
 
 TL,DR: Open App here https://gistmee.herokuapp.com/
 
-### What the project does
+### What the app does
   **_Introduction/Background Information_**
 
-Gistme is a newsfedd app built using React-Flux Archetecture. It is intended for searching current and top news and info from over 70 news agencies across the globe. With gistMe you have more news than you can exhaust; including news updates on sports, lifestyle, politics, leadership, business and more.
+Gistme is a newsfedd app built using React-Flux Archetecture. It is intended for searching current and top news and info from over 70 news agencies across the globe. With gistMe you have more news than you can exhaust for the day; including news updates on sports, lifestyle, politics, leadership, business and more.
 
 
   **_Features_**
-    The app has the following main features:
+The app has the following main features:
 * Google plus authentication for sign in
 * Search news updates by their sources
 * Read news Headlines with images
 * Sort searched updates by <code>top</code> or <code>latest</code>
-* Read the full story on the news agent's site
+* Read the full story on the news agent's site by clicking the `Read More` button
 
 ### Why the app is useful
    The app gives you access to to and latest news updates across the globe. It can reduce your monthly bills on newspapers.
@@ -64,7 +64,7 @@ With the API design,
 
 If you are interested in participating in the development of gistMe, your ideas and contributions are welcome! It is always better to start by identifying a specific part of the app you can make better. You can reach out to the team through the comments or [create a new issue](https://github.com/andela-onnenanya/newsfeed/issues/new).
  
-### Authors & Contributors**
+### Authors & Contributors
 
  * Nnenanya Obinna K (Software Developer at andela.com)
  * Adebayo Adesanya (Learning Facilitator at andela.com)
