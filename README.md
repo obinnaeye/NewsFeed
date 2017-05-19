@@ -44,8 +44,8 @@ $ npm start
 
 ```
 The test specs for this app uses Jest/Enzyme. 
-Use <code>npm test<code> to run local tests.
-To see test coverage, use `npm run coverage`
+Use  `npm test`  to run local tests.
+To see test coverage, use  `npm run coverage` 
 ```
 
 ### Limitations of the project
