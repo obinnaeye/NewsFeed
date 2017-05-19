@@ -34,6 +34,12 @@ class NewsPage extends React.Component {
     this.getSorts = this.getSorts.bind(this);
   }
 
+  /**
+   * @desc the events that occur before the component mounts
+   * @param {void}
+   * @return {void}
+   * @memberOf NewsPage
+   */
   componentWillMount() {
     NewsStore.on('change', () => {
       this.setState({
@@ -41,7 +47,7 @@ class NewsPage extends React.Component {
       });
     });
 
-    SourceStore.on('source', () => {
+    SourceStore.on('sources', () => {
       const { options, rawSource } = SourceStore.sources;
       this.setState({
         sources: options,
@@ -50,6 +56,12 @@ class NewsPage extends React.Component {
     });
   }
 
+/**
+   * @desc the events that occur when the component has mounted
+   * @param {void}
+   * @return {void}
+   * @memberOf NewsPage
+   */
   componentDidMount() {
     NewsActions.getSource();
     NewsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });

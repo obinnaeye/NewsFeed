@@ -44,7 +44,7 @@ class SourceStore extends EventEmitter {
       options,
       rawSource
     };
-    this.emit('source');
+    this.emit('sources');
   }
 
   /**
@@ -56,7 +56,7 @@ class SourceStore extends EventEmitter {
    /* eslint-disable consistent-return */
   handleActions(action) {
     switch (action.type) {
-      case 'GET_SOURCE': {
+      case 'GET_SOURCES': {
         this.getSource();
         break;
       }

@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * @param {void}
+ * @return {element}
+ */
 const Footer = () =>
   <footer className="footer">
     <div className="container">
