@@ -30,7 +30,7 @@ The app has the following main features:
 ### How users can get started with the project
 
  **_Requirements_**
-   The basic requirement for the app to run locally on the users device is NodeJs.
+The basic requirement for the app to run locally on the users device is NodeJs.
 
  **_Installations_**
 
@@ -42,9 +42,11 @@ $ npm start
 ```
   **_Testing_**
 
-      The test specs for this app uses Jest/Enzyme. 
-      Use `npm test` to run local tests.
-      To see test coverage, use `npm run coverage`
+```javascript
+The test specs for this app uses Jest/Enzyme. 
+Use <code>npm test<code> to run local tests.
+To see test coverage, use `npm run coverage`
+```
 
 ### Limitations of the project
     The basic limitations of the app lie on:
