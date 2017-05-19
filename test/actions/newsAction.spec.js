@@ -1,4 +1,4 @@
-import * as newsActions from '../../src/js/actions/newsActions';
+import NewsActions from '../../src/js/actions/NewsActions';
 import Dispatcher from '../../src/js/dispatcher/dispatcher';
 
 /* eslint-disable no-undef */
@@ -13,7 +13,7 @@ describe('NewsAction', () => {
   });
 
   it('should dispatch  "GET_NEWS" when getNews is called', () => {
-    newsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });
+    NewsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });
     const mockDispatchCall = spy.mock.calls[0][0];
     expect(spy).toHaveBeenCalled();
     expect(mockDispatchCall.type).toEqual('GET_NEWS');
@@ -21,7 +21,7 @@ describe('NewsAction', () => {
   });
 
   it('should dispatch  "SORT_NEWS" when sortNews is called', () => {
-    newsActions.sortNews({ source: 'al-jazeera-english', sortby: 'top' });
+    NewsActions.sortNews({ source: 'al-jazeera-english', sortby: 'top' });
     const mockDispatchCall = spy.mock.calls[0][0];
     expect(spy).toHaveBeenCalled();
     expect(mockDispatchCall.type).toEqual('SORT_NEWS');
