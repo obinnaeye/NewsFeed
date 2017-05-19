@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeHeader from '../components/homeHeader';
+import HomeHeader from '../components/HomeHeader';
 import HomeBody from '../components/HomeBody';
 
 /**

@@ -13,10 +13,9 @@ describe('NavBar component', () => {
     expect(mount(<NavBar />).find('.header').length).toBe(1);
   });
 
-  it('should mount and render a "nav" element as the first child', () => {
+  it('should mount and render a "div" element as the first child', () => {
     const wrapper = mount(<NavBar />);
-    expect(wrapper.children().first().is('nav')).toBe(true);
-    expect(wrapper.find('nav').parent().is('NavBar')).toEqual(true);
+    expect(wrapper.children().first().is('div')).toBe(true);
   });
 
   it('should accept props', () => {

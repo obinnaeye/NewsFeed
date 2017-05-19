@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import HomeHeader from '../../src/js/components/homeHeader';
+import HomeHeader from '../../src/js/components/HomeHeader';
 
 /* eslint-disable no-undef */
 describe('HomeHeader component', () => {

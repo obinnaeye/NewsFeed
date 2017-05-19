@@ -20,6 +20,7 @@ class NewsStore extends EventEmitter {
     this.newsAPI = 'https://newsapi.org/v1/articles';
     this.sourceAPI = 'https://newsapi.org/v1/sources';
     this.articles = [];
+    this.sources = [];
     this.createArticles = this.createArticles.bind(this);
   }
 
@@ -46,28 +47,6 @@ class NewsStore extends EventEmitter {
     return this.articles;
   }
 
-  /**
-   *
-   * @returns (object)
-   *
-   * @memberOf NewsStore
-   */
-  getSource() {
-    const options = [];
-    const rawSource = [];
-    axios(`${this.sourceAPI}`).then((data) => {
-      const { sources } = data.data;
-      sources.forEach((source) => {
-        rawSource.push(source);
-        options.push({ value: source.id, label: source.name, sortby: source.sortBysAvailable });
-      });
-    });
-    /* eslint-disable comma-dangle */
-    return {
-      options,
-      rawSource
-    };
-  }
 
   /**
    * @param {object} obj

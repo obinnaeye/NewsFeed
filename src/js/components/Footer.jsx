@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * @param {void}
+ * @return {element}
+ */
 const Footer = () =>
   <footer className="footer">
     <div className="container">
@@ -39,7 +43,7 @@ const Footer = () =>
         </a>
       </div>
       <div className="copyright">
-        &copy; 2016 <a href="/">gisMe</a> made with love!
+        &copy; 2017 <a href="/">gisMe</a> made with love!
       </div>
     </div>
   </footer>;

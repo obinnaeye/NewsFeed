@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
  * @return {element} search bar
  */
 /* eslint-disable react/prop-types */
-const SearchBar = props =>
+const SourceBar = props =>
   <div className="search-box">
     <Select
       name="form-field-name"
@@ -19,24 +19,25 @@ const SearchBar = props =>
     />
     <span className="search-btn"><button onClick={props.onclick}> Reload Headlines </button></span>
     <span>
+      <span className="sort-by"><b>Sort By: </b></span>
       <select onChange={props.sortAction}>
         {props.sorts}
       </select>
     </span>
   </div>;
 
-SearchBar.defaultProps = {
+SourceBar.defaultProps = {
   sources: [],
   value: {},
   sorts: [],
 };
 
 /* eslint-disable react/forbid-prop-types */
-SearchBar.propTypes = {
+SourceBar.propTypes = {
   sources: PropTypes.array,
   value: PropTypes.object,
   sorts: PropTypes.array,
 };
 
 
-export default SearchBar;
+export default SourceBar;

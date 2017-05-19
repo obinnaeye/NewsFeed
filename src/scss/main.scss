@@ -77,9 +77,13 @@ body{
 }
 
 .search-box{
+  margin-top: 100px;
   span{
     margin: 10px;
     border-radius: 3px;
+    .sort-by{
+      color: white;
+    }
   }
   .search-btn{
     display: inline-block;

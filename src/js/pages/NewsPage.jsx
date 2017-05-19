@@ -1,10 +1,11 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
-import SearchBar from '../components/SearchBar';
+import SourceBar from '../components/SourceBar';
 import NewsList from '../components/NewsList';
 import News from '../components/News';
-import * as NewsActions from '../actions/newsActions';
+import NewsActions from '../actions/NewsActions';
 import NewsStore from '../stores/newsStore';
+import SourceStore from '../../js/stores/SourceStore';
 import Footer from '../components/Footer';
 
 /**
@@ -27,37 +28,43 @@ class NewsPage extends React.Component {
       sortBy: ['top', 'latest'],
       currentSort: '',
     };
-    this.getSource = this.getSource.bind(this);
     this.getValue = this.getValue.bind(this);
     this.searchNews = this.searchNews.bind(this);
     this.sortAction = this.sortAction.bind(this);
     this.getSorts = this.getSorts.bind(this);
   }
 
+  /**
+   * @desc the events that occur before the component mounts
+   * @param {void}
+   * @return {void}
+   * @memberOf NewsPage
+   */
   componentWillMount() {
     NewsStore.on('change', () => {
       this.setState({
         articles: NewsStore.getArticles(),
       });
     });
+
+    SourceStore.on('sources', () => {
+      const { options, rawSource } = SourceStore.sources;
+      this.setState({
+        sources: options,
+        rawSource,
+      }, () => {});
+    });
   }
 
-  componentDidMount() {
-    this.getSource();
-    NewsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });
-  }
-
-  /**
+/**
+   * @desc the events that occur when the component has mounted
+   * @param {void}
+   * @return {void}
    * @memberOf NewsPage
-   * @returns {void}
    */
-  getSource() {
-    const { options } = NewsStore.getSource();
-    const { rawSource } = NewsStore.getSource();
-    this.setState({
-      sources: options,
-      rawSource,
-    }, () => {});
+  componentDidMount() {
+    NewsActions.getSource();
+    NewsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });
   }
 
   /**
@@ -139,9 +146,9 @@ class NewsPage extends React.Component {
     });
 
     return (
-      <div>
+      <div className="wrapper">
         <NavBar />
-        <SearchBar
+        <SourceBar
           sources={this.state.sources}
           value={this.state.currentValue}
           onchange={this.getValue}
