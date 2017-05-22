@@ -2,7 +2,6 @@ import React from 'react';
 import NavBar from '../components/NavBar';
 import SourceBar from '../components/SourceBar';
 import NewsList from '../components/NewsList';
-import News from '../components/News';
 import NewsActions from '../actions/NewsActions';
 import NewsStore from '../stores/NewsStore';
 import SourceStore from '../../js/stores/SourceStore';
@@ -55,30 +54,13 @@ class NewsPage extends React.Component {
         sources: options,
         rawSource,
         currentValue: randomSource,
-        sortBy: randomSource.sortby,
+        sortBy: randomSource.sortBy,
       }, () => {
-        NewsActions.getNews({ source: randomSource.value, sortby: randomSource.sortby[0] });
+        NewsActions.getNews({ source: randomSource.value, sortBy: randomSource.sortBy[0] });
       });
     });
 
     NewsActions.getSource();
-  }
-
-/**
-   * @desc the events that occur when the component has mounted
-   * @param {void}
-   * @return {void}
-   * @memberOf NewsPage
-   */
-  // componentDidMount() {
-  //   NewsActions.getSource();
-  //   const sorces = this.state.sources;
-  //   console.log(sorces);
-  //   NewsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });
-  // }
-
-  getNews(){
-    console.log(this.state)
   }
 
   /**
@@ -90,7 +72,7 @@ class NewsPage extends React.Component {
     if (value) {
       this.setState({
         currentValue: value,
-        sortBy: value.sortby,
+        sortBy: value.sortBy,
       }, () => { this.searchNews(); });
     }
   }
@@ -119,9 +101,9 @@ class NewsPage extends React.Component {
     const source = this.state.currentValue.value ? this.state.currentValue.value : '';
     if (source) {
       // check if sortBysAvailable is more than one and currentSort exists in state
-      const sortby = this.state.sortBy.length > 1 && this.state.currentSort ?
+      const sortBy = this.state.sortBy.length > 1 && this.state.currentSort ?
       this.state.currentSort : this.state.sortBy[0];
-      NewsActions.getNews({ source, sortby });
+      NewsActions.getNews({ source, sortBy });
     }
   }
 
@@ -133,10 +115,10 @@ class NewsPage extends React.Component {
   sortAction() {
     return (e) => {
       const source = this.state.currentValue.value;
-      const sortby = e.target.value;
-      NewsActions.getNews({ source, sortby });
+      const sortBy = e.target.value;
+      NewsActions.getNews({ source, sortBy });
       this.setState({
-        currentSort: sortby,
+        currentSort: sortBy,
       });
     };
   }
@@ -147,18 +129,6 @@ class NewsPage extends React.Component {
    * @memberOf NewsPage
    */
   render() {
-    const news = this.state.articles;
-    const NewsComponents = news.map((item, i) => {
-      let title;
-      if (item.title.length > 60) {
-        title = `${item.title.slice(0, 56)}...`;
-      } else {
-        title = item.title;
-      }
-      const key = i;
-      return <News key={key} title={title} href={item.url} src={item.urlToImage} />;
-    });
-
     return (
       <div className="wrapper">
         <NavBar />
@@ -170,7 +140,7 @@ class NewsPage extends React.Component {
           sorts={this.getSorts()}
           sortAction={this.sortAction()}
         />
-        <NewsList news={NewsComponents} />
+        <NewsList news={this.state.articles} />
         <Footer />
       </div>
     );

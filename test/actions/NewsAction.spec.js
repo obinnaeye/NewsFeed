@@ -13,18 +13,18 @@ describe('NewsAction', () => {
   });
 
   it('should dispatch  "GET_NEWS" when getNews is called', () => {
-    NewsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });
+    NewsActions.getNews({ source: 'al-jazeera-english', sortBy: 'top' });
     const mockDispatchCall = spy.mock.calls[0][0];
     expect(spy).toHaveBeenCalled();
     expect(mockDispatchCall.type).toEqual('GET_NEWS');
-    expect(mockDispatchCall.obj).toEqual({ source: 'al-jazeera-english', sortby: 'top' });
+    expect(mockDispatchCall.obj).toEqual({ source: 'al-jazeera-english', sortBy: 'top' });
   });
 
   it('should dispatch  "SORT_NEWS" when sortNews is called', () => {
-    NewsActions.sortNews({ source: 'al-jazeera-english', sortby: 'top' });
+    NewsActions.sortNews({ source: 'al-jazeera-english', sortBy: 'top' });
     const mockDispatchCall = spy.mock.calls[0][0];
     expect(spy).toHaveBeenCalled();
     expect(mockDispatchCall.type).toEqual('SORT_NEWS');
-    expect(mockDispatchCall.obj).toEqual({ source: 'al-jazeera-english', sortby: 'top' });
+    expect(mockDispatchCall.obj).toEqual({ source: 'al-jazeera-english', sortBy: 'top' });
   });
 });

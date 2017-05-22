@@ -9,12 +9,12 @@ describe('NewsStore', () => {
   // sample data for callback
   const getNewsObj = {
     type: 'GET_NEWS',
-    obj: { source: 'al-jazeera-english', sortby: 'top' }
+    obj: { source: 'al-jazeera-english', sortBy: 'top' }
   };
 
   const sortNewsObj = {
     type:'SORT_NEWS',
-    obj: { source: 'al-jazeera-english', sortby: 'top' }
+    obj: { source: 'al-jazeera-english', sortBy: 'top' }
   };
 
   let callback;
