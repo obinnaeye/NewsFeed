@@ -1,5 +1,4 @@
 import { EventEmitter } from 'events';
-import axios from 'axios';
 
 import dispatcher from '../dispatcher/dispatcher';
 
@@ -17,9 +16,6 @@ class SourceStore extends EventEmitter {
    */
   constructor() {
     super();
-    this.newsAPI = 'https://newsapi.org/v1/articles';
-    this.sourceAPI = 'https://newsapi.org/v1/sources';
-    this.articles = [];
     this.sources = [];
   }
 
@@ -29,21 +25,8 @@ class SourceStore extends EventEmitter {
    *
    * @memberOf NewsStore
    */
-  getSource() {
-    const options = [];
-    const rawSource = [];
-    axios(`${this.sourceAPI}`).then((data) => {
-      const { sources } = data.data;
-      sources.forEach((source) => {
-        rawSource.push(source);
-        options.push({ value: source.id, label: source.name, sortby: source.sortBysAvailable });
-      });
-    });
-    /* eslint-disable comma-dangle */
-    this.sources = {
-      options,
-      rawSource
-    };
+  setSource(sources) {
+    this.sources = sources;
     this.emit('sources');
   }
 
@@ -57,7 +40,7 @@ class SourceStore extends EventEmitter {
   handleActions(action) {
     switch (action.type) {
       case 'GET_SOURCES': {
-        this.getSource();
+        this.setSource(action.sources);
         break;
       }
       default : {

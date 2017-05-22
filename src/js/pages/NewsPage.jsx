@@ -4,7 +4,7 @@ import SourceBar from '../components/SourceBar';
 import NewsList from '../components/NewsList';
 import News from '../components/News';
 import NewsActions from '../actions/NewsActions';
-import NewsStore from '../stores/newsStore';
+import NewsStore from '../stores/NewsStore';
 import SourceStore from '../../js/stores/SourceStore';
 import Footer from '../components/Footer';
 
@@ -24,8 +24,8 @@ class NewsPage extends React.Component {
       articles: [],
       sources: [],
       rawSource: [],
-      currentValue: { value: 'al-jazeera-english', label: 'Al Jazeera English', sortby: ['top', 'latest'] },
-      sortBy: ['top', 'latest'],
+      currentValue: {},
+      sortBy: [],
       currentSort: '',
     };
     this.getValue = this.getValue.bind(this);
@@ -40,20 +40,28 @@ class NewsPage extends React.Component {
    * @return {void}
    * @memberOf NewsPage
    */
-  componentWillMount() {
+  componentDidMount() {
     NewsStore.on('change', () => {
       this.setState({
-        articles: NewsStore.getArticles(),
+        articles: NewsStore.articles,
       });
     });
 
     SourceStore.on('sources', () => {
       const { options, rawSource } = SourceStore.sources;
+      const randomIndex = Math.floor((Math.random() * (options.length - 1)));
+      const randomSource = options[randomIndex];
       this.setState({
         sources: options,
         rawSource,
-      }, () => {});
+        currentValue: randomSource,
+        sortBy: randomSource.sortby,
+      }, () => {
+        NewsActions.getNews({ source: randomSource.value, sortby: randomSource.sortby[0] });
+      });
     });
+
+    NewsActions.getSource();
   }
 
 /**
@@ -62,9 +70,15 @@ class NewsPage extends React.Component {
    * @return {void}
    * @memberOf NewsPage
    */
-  componentDidMount() {
-    NewsActions.getSource();
-    NewsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });
+  // componentDidMount() {
+  //   NewsActions.getSource();
+  //   const sorces = this.state.sources;
+  //   console.log(sorces);
+  //   NewsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });
+  // }
+
+  getNews(){
+    console.log(this.state)
   }
 
   /**
@@ -120,7 +134,7 @@ class NewsPage extends React.Component {
     return (e) => {
       const source = this.state.currentValue.value;
       const sortby = e.target.value;
-      NewsActions.sortNews({ source, sortby });
+      NewsActions.getNews({ source, sortby });
       this.setState({
         currentSort: sortby,
       });

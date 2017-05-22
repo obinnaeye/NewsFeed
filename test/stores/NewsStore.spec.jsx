@@ -1,9 +1,9 @@
-import * as NewsStore from '../../src/js/stores/newsStore';
+import * as NewsStore from '../../src/js/stores/NewsStore';
 import Dispatcher from '../../src/js/dispatcher/dispatcher';
 
 /* eslint-disable no-undef */
 jest.mock('../../src/js/dispatcher/dispatcher');
-jest.dontMock('../../src/js/stores/newsStore');
+jest.dontMock('../../src/js/stores/NewsStore');
 
 describe('NewsStore', () => {
   // sample data for callback

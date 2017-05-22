@@ -1,5 +1,4 @@
 import { EventEmitter } from 'events';
-import axios from 'axios';
 
 import dispatcher from '../dispatcher/dispatcher';
 
@@ -17,25 +16,9 @@ class NewsStore extends EventEmitter {
    */
   constructor() {
     super();
-    this.newsAPI = 'https://newsapi.org/v1/articles';
-    this.sourceAPI = 'https://newsapi.org/v1/sources';
     this.articles = [];
-    this.sources = [];
-    this.createArticles = this.createArticles.bind(this);
   }
 
-  /**
-   *
-   * @param {any} obj
-   *
-   * @memberOf NewsStore
-   */
-  createArticles(obj) {
-    axios.get(`${this.newsAPI}?apiKey=${process.env.APIKey}&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
-      this.articles = data.data.articles;
-      this.emit('change');
-    });
-  }
 
   /**
    *
@@ -47,18 +30,11 @@ class NewsStore extends EventEmitter {
     return this.articles;
   }
 
-
-  /**
-   * @param {object} obj
-   *
-   * @memberOf NewsStore
-   */
-  sortArticles(obj) {
-    axios.get(`${this.newsAPI}?apiKey=${process.env.APIKey}&source=${obj.source}&sortBy=${obj.sortby}`).then((data) => {
-      this.articles = data.data.articles;
-      this.emit('change');
-    });
+  setArticles(articles) {
+    this.articles = articles;
+    this.emit('change');
   }
+
   /**
    * @param {any} action
    * @returns {any}
@@ -69,11 +45,11 @@ class NewsStore extends EventEmitter {
   handleActions(action) {
     switch (action.type) {
       case 'GET_NEWS': {
-        this.createArticles(action.obj);
+        this.setArticles(action.articles);
         break;
       }
       case 'SORT_NEWS': {
-        this.sortArticles(action.obj);
+        this.sortArticles(action.newsSource);
         break;
       }
       default : {
