@@ -1,9 +1,9 @@
 import * as NewsStore from '../../src/js/stores/NewsStore';
-import appDispatcher from '../../src/js/dispatcher/dispatcher';
+import appDispatcher from '../../src/js/dispatcher/AppDispatcher';
 import mockArticles from '../../mocks/mockData.json';
 
 /* eslint-disable no-undef, comma-dangle */
-jest.mock('../../src/js/dispatcher/dispatcher');
+jest.mock('../../src/js/dispatcher/AppDispatcher');
 jest.dontMock('../../src/js/stores/NewsStore');
 
 describe('NewsStore', () => {

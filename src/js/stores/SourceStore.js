@@ -1,29 +1,27 @@
 import { EventEmitter } from 'events';
 
-import dispatcher from '../dispatcher/dispatcher';
+import appDispatcher from '../dispatcher/AppDispatcher';
 
 require('dotenv').config();
 
 /**
+ * @desc holds the news sources and emit change event when sources are updated
  * @class SourceStore
  * @extends {EventEmitter}
+ * @param {void}
+ * @return {void}
  */
 class SourceStore extends EventEmitter {
-  /**
-   * Creates an instance of SourceStore.
-   *
-   * @memberOf SourceStore
-   */
   constructor() {
     super();
     this.sources = [];
   }
 
   /**
-   *
-   * @returns (object)
-   *
-   * @memberOf NewsStore
+   * @desc updates news sources
+   * @param {any} sources
+   * @memberof SourceStore
+   * @return {void}
    */
   setSource(sources) {
     this.sources = sources;
@@ -31,10 +29,10 @@ class SourceStore extends EventEmitter {
   }
 
   /**
+   * @desc handles GET_SOURCES action dispatched by the dispatcher
    * @param {any} action
-   * @returns {any}
-   *
-   * @memberOf SourceStore
+   * @returns {void}
+   * @memberof SourceStore
    */
    /* eslint-disable */
   handleActions(action) {
@@ -49,5 +47,5 @@ class SourceStore extends EventEmitter {
 }
 
 const sourceStore = new SourceStore();
-dispatcher.register(sourceStore.handleActions.bind(sourceStore));
+appDispatcher.register(sourceStore.handleActions.bind(sourceStore));
 export default sourceStore;

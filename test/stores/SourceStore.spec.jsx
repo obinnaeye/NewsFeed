@@ -1,9 +1,9 @@
 import * as SourceStore from '../../src/js/stores/SourceStore';
-import Dispatcher from '../../src/js/dispatcher/dispatcher';
+import appDispatcher from '../../src/js/dispatcher/AppDispatcher';
 import mockedSources from '../../mocks/mockData.json';
 
 /* eslint-disable no-undef, comma-dangle */
-jest.mock('../../src/js/dispatcher/dispatcher');
+jest.mock('../../src/js/dispatcher/AppDispatcher');
 jest.dontMock('../../src/js/stores/SourceStore');
 
 describe('SourceStore', () => {
@@ -16,11 +16,11 @@ describe('SourceStore', () => {
   let callback;
 
   beforeEach(() => {
-    callback = Dispatcher.register.mock.calls[0][0];
+    callback = appDispatcher.register.mock.calls[0][0];
   });
 
   test('registers a callback with the dispatcher', () => {
-    expect(Dispatcher.register.mock.calls.length).toBe(1);
+    expect(appDispatcher.register.mock.calls.length).toBe(1);
   });
 
   test('initializes with no data', () => {

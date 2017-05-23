@@ -3,6 +3,7 @@ import Select from 'react-select';
 import PropTypes from 'prop-types';
 
 /**
+ * @desc renders a bar with searchable select options of news sources and sort parameters
  * @param {any} props
  * @return {element} search bar
  */

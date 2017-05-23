@@ -4,7 +4,7 @@ import sinon from 'sinon';
 import axios from 'axios';
 import mockCall from '../../mocks/axios';
 import NewsActions from '../../src/js/actions/NewsActions';
-import appDispatcher from '../../src/js/dispatcher/dispatcher';
+import appDispatcher from '../../src/js/dispatcher/AppDispatcher';
 
 describe('NewsActions to get news', () => {
   let spyNews;

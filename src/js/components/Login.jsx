@@ -3,6 +3,7 @@ import FontAwesome from './FontAwesome';
 import '../../scss/main.scss';
 
 /**
+ * @desc renders the Login component
  * @param {void}
  * @return {element} Login-button
  */

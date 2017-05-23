@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
+ * @desc renders a singel news article in the NewsList component
  * @param {any} props
- * @return {element} article as li element
+ * @return {element} return article as li element
  */
 const News = props =>
   <li className="flex-item">

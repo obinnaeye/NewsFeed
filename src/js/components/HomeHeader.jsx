@@ -1,6 +1,7 @@
 import React from 'react';
 
 /**
+ * @desc creates a header component for the home page
  * @param {void}
  * @return {element} home header div
  */

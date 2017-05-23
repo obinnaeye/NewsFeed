@@ -1,34 +1,40 @@
 import { EventEmitter } from 'events';
 
-import dispatcher from '../dispatcher/dispatcher';
+import appDispatcher from '../dispatcher/AppDispatcher';
 
 require('dotenv').config();
 
 /**
+ * @desc holds the news artilces and emit change event when articles are updated
  * @class NewsStore
  * @extends {EventEmitter}
+ * @param {void}
+ * @return {void}
  */
 class NewsStore extends EventEmitter {
-  /**
-   * Creates an instance of NewsStore.
-   *
-   * @memberOf NewsStore
-   */
+
   constructor() {
     super();
     this.articles = [];
   }
 
+
+  /**
+   * @desc updates news articles
+   * @param {any} articles
+   * @memberof NewsStore
+   * @return {void}
+   */
   setArticles(articles) {
     this.articles = articles;
     this.emit('change');
   }
 
   /**
+   * @desc handles GET_NEWS action dispatched by the dispatcher
    * @param {any} action
-   * @returns {any}
-   *
-   * @memberOf NewsStore
+   * @returns {void}
+   * @memberof NewsStore
    */
    /* eslint-disable */
   handleActions(action) {
@@ -43,5 +49,5 @@ class NewsStore extends EventEmitter {
 }
 
 const newsStore = new NewsStore();
-dispatcher.register(newsStore.handleActions.bind(newsStore));
+appDispatcher.register(newsStore.handleActions.bind(newsStore));
 export default newsStore;

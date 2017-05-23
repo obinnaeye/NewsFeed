@@ -1,5 +1,5 @@
 import axios from 'axios';
-import dispatcher from '../dispatcher/dispatcher';
+import appDispatcher from '../dispatcher/AppDispatcher';
 
 
  /**
@@ -20,7 +20,7 @@ const NewsActions = {
     return axios.get(`https://newsapi.org/v1/articles?apiKey=${process.env.APIKey}&source=${newsSource.source}&sortBy=${newsSource.sortBy}`)
     .then((data) => {
       articles = data.data.articles;
-      dispatcher.dispatch({
+      appDispatcher.dispatch({
         type: 'GET_NEWS',
         articles,
       });
@@ -48,7 +48,7 @@ const NewsActions = {
         options,
         rawSource
       };
-      dispatcher.dispatch({
+      appDispatcher.dispatch({
         type: 'GET_SOURCES',
         sources,
       });

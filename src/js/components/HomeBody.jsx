@@ -3,6 +3,7 @@ import Login from './Login';
 import Footer from './Footer';
 
 /**
+ * @desc renders the home page
  * @param {void}
  * @return {element} index main div
  */

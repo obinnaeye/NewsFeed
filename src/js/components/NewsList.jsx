@@ -4,6 +4,7 @@ import '../../scss/main.scss';
 import News from './News';
 
 /**
+ * @desc renders news artilces unordered list of News component
  * @param {any} props
  * @return {element} list of all articles
  */
