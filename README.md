@@ -7,7 +7,7 @@ gistMe
  [![Coverage Status](https://coveralls.io/repos/github/andela-onnenanya/newsfeed/badge.svg)](https://coveralls.io/github/andela-onnenanya/newsfeed)
 
 
-TL,DR: Open App here https://gistmee.herokuapp.com/
+Open App here https://gistmee.herokuapp.com/
 
 ### What the app does
   **_Introduction/Background Information_**
