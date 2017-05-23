@@ -19,17 +19,6 @@ class NewsStore extends EventEmitter {
     this.articles = [];
   }
 
-
-  /**
-   *
-   * @returns (object)
-   *
-   * @memberOf NewsStore
-   */
-  getArticles() {
-    return this.articles;
-  }
-
   setArticles(articles) {
     this.articles = articles;
     this.emit('change');
@@ -41,19 +30,12 @@ class NewsStore extends EventEmitter {
    *
    * @memberOf NewsStore
    */
-   /* eslint-disable consistent-return */
+   /* eslint-disable */
   handleActions(action) {
     switch (action.type) {
       case 'GET_NEWS': {
         this.setArticles(action.articles);
         break;
-      }
-      case 'SORT_NEWS': {
-        this.sortArticles(action.newsSource);
-        break;
-      }
-      default : {
-        return 'No Action Was Called!';
       }
     }
   }

@@ -8,13 +8,15 @@ import dispatcher from '../dispatcher/dispatcher';
 const NewsActions = {
   getNews: (newsSource) => {
     let articles = [];
-    axios.get(`https://newsapi.org/v1/articles?apiKey=${process.env.APIKey}&source=${newsSource.source}&sortBy=${newsSource.sortBy}`).then((data) => {
+    return axios.get(`https://newsapi.org/v1/articles?apiKey=${process.env.APIKey}&source=${newsSource.source}&sortBy=${newsSource.sortBy}`)
+    .then((data) => {
       articles = data.data.articles;
       dispatcher.dispatch({
         type: 'GET_NEWS',
         articles,
       });
-    });
+    }).catch(error => error,
+    );
   },
 
 /**
@@ -25,7 +27,7 @@ const NewsActions = {
   getSource: () => {
     const options = [];
     const rawSource = [];
-    axios('https://newsapi.org/v1/sources').then((data) => {
+    return axios('https://newsapi.org/v1/sources').then((data) => {
       const newsSources = data.data.sources;
       newsSources.forEach((source) => {
         rawSource.push(source);

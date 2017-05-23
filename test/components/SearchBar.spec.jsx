@@ -7,7 +7,7 @@ describe('SourceBar component', () => {
   const defaultFun = demo => demo;
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(<SourceBar onchange={defaultFun} />);
+    wrapper = mount(<SourceBar onChange={defaultFun} />);
   });
 
   it('should exist', () => {

@@ -1,46 +1,36 @@
 import * as NewsStore from '../../src/js/stores/NewsStore';
-import Dispatcher from '../../src/js/dispatcher/dispatcher';
+import appDispatcher from '../../src/js/dispatcher/dispatcher';
+import mockArticles from '../../mocks/mockData.json';
 
-/* eslint-disable no-undef */
+/* eslint-disable no-undef, comma-dangle */
 jest.mock('../../src/js/dispatcher/dispatcher');
 jest.dontMock('../../src/js/stores/NewsStore');
 
 describe('NewsStore', () => {
   // sample data for callback
-  const getNewsObj = {
+  const mockDispatch = {
     type: 'GET_NEWS',
-    obj: { source: 'al-jazeera-english', sortBy: 'top' }
-  };
-
-  const sortNewsObj = {
-    type:'SORT_NEWS',
-    obj: { source: 'al-jazeera-english', sortBy: 'top' }
+    articles: mockArticles
   };
 
   let callback;
 
   beforeEach(() => {
-    callback = Dispatcher.register.mock.calls[0][0];
+    callback = appDispatcher.register.mock.calls[0][0];
   });
 
   test('registers a callback with the dispatcher', () => {
-    expect(Dispatcher.register.mock.calls.length).toBe(1);
+    expect(appDispatcher.register.mock.calls.length).toBe(1);
   });
 
   test('initializes with no data', () => {
-    const count = NewsStore.default.getArticles().length;
+    const count = NewsStore.default.articles.length;
     expect(count).toBe(0);
   });
 
-  test('should call createArticles when "GET_NEWS" is dispatched', () => {
-    const spyStore = jest.spyOn(NewsStore.default, 'createArticles');
-    callback(getNewsObj);
-    expect(spyStore).toHaveBeenCalled();
-  });
-
-  test('should call sortArticles when "SORT_NEWS" is dispatched', () => {
-    const spyStore = jest.spyOn(NewsStore.default, 'sortArticles');
-    callback(sortNewsObj);
+  test('should call "setArticles" when "GET_NEWS" is dispatched', () => {
+    const spyStore = jest.spyOn(NewsStore.default, 'setArticles');
+    callback(mockDispatch);
     expect(spyStore).toHaveBeenCalled();
   });
 });

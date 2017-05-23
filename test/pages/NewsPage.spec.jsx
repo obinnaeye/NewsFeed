@@ -3,9 +3,12 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';   
 import NewsActions from '../../src/js/actions/NewsActions';
 import NewsPage from '../../src/js/pages/NewsPage';
+import mockData from '../../mocks/mockData.json';
 
 /* eslint-disable no-undef */
 describe('NewsPage component', () => {
+  const initialSource = [];
+  const sources = mockData.data.articles;
   it('should exist', () => {
     expect(<NewsPage />).toBeDefined();
   });
@@ -25,10 +28,10 @@ describe('NewsPage component', () => {
   });
 
   it('should accept props', () => {
-    const wrapper = mount(<NewsPage test="props" />);
-    expect(wrapper.props().test).toEqual('props');
-    wrapper.setProps({ test: 'props2' });
-    expect(wrapper.props().test).toEqual('props2');
+    const wrapper = mount(<NewsPage sources={initialSource} />);
+    expect(wrapper.props().sources).toEqual([]);
+    wrapper.setProps({ sources });
+    expect(wrapper.props().sources).toEqual(sources);
   });
 
   it('should render child component', () => {

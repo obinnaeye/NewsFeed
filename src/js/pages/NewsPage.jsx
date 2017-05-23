@@ -46,7 +46,7 @@ class NewsPage extends React.Component {
       });
     });
 
-    SourceStore.on('sources', () => {
+    SourceStore.on('change', () => {
       const { options, rawSource } = SourceStore.sources;
       const randomIndex = Math.floor((Math.random() * (options.length - 1)));
       const randomSource = options[randomIndex];
@@ -135,8 +135,8 @@ class NewsPage extends React.Component {
         <SourceBar
           sources={this.state.sources}
           value={this.state.currentValue}
-          onchange={this.getValue}
-          onclick={this.searchNews}
+          onChange={this.getValue}
+          onClick={this.searchNews}
           sorts={this.getSorts()}
           sortAction={this.sortAction()}
         />

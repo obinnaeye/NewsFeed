@@ -36,15 +36,12 @@ class SourceStore extends EventEmitter {
    *
    * @memberOf SourceStore
    */
-   /* eslint-disable consistent-return */
+   /* eslint-disable */
   handleActions(action) {
     switch (action.type) {
       case 'GET_SOURCES': {
         this.setSource(action.sources);
         break;
-      }
-      default : {
-        return 'No Action Was Called!';
       }
     }
   }
