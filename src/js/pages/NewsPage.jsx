@@ -8,8 +8,11 @@ import SourceStore from '../../js/stores/SourceStore';
 import Footer from '../components/Footer';
 
 /**
+ * @desc renders a page containing all components on /news page
  * @class NewsPage
+ * @param {void}
  * @extends {React.Component}
+ * @return {element} a rendered element on the DOM
  */
 class NewsPage extends React.Component {
   /**

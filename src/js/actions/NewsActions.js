@@ -1,11 +1,20 @@
 import axios from 'axios';
 import dispatcher from '../dispatcher/dispatcher';
-/**
- * @desc actions.
- *
- * @returns {void}
- */
+
+
+ /**
+   * @desc handles actions dispatched by dispatcher
+   * @returns {void}
+   * @param {void}
+   */
 const NewsActions = {
+
+  /**
+ * @desc makes api call to newsapi.org and dispatches GET_NEWS action and news articles
+ * @returns {funcion} axios call
+ * @param {void}
+ * @memberof NewsActions
+ */
   getNews: (newsSource) => {
     let articles = [];
     return axios.get(`https://newsapi.org/v1/articles?apiKey=${process.env.APIKey}&source=${newsSource.source}&sortBy=${newsSource.sortBy}`)
@@ -20,9 +29,10 @@ const NewsActions = {
   },
 
 /**
- * @desc actions that dispatches GET_SOURCE
- *
- * @returns {void}
+ * @desc makes api call to newsapi.org and dispatches GET_SOURCES action and news sources
+ * @returns {func} axios call
+ * @param {void}
+ * @memberof NewsActions
  */
   getSource: () => {
     const options = [];
