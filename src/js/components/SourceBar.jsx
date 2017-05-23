@@ -3,6 +3,7 @@ import Select from 'react-select';
 import PropTypes from 'prop-types';
 
 /**
+ * @desc renders a bar with searchable select options of news sources and sort parameters
  * @param {any} props
  * @return {element} search bar
  */
@@ -14,10 +15,10 @@ const SourceBar = props =>
       options={props.sources}
       value={props.value}
       class="search-bar"
-      onChange={props.onchange}
+      onChange={props.onChange}
       clearable
     />
-    <span className="search-btn"><button onClick={props.onclick}> Reload Headlines </button></span>
+    <span className="search-btn"><button onClick={props.onClick}> Reload Headlines </button></span>
     <span>
       <span className="sort-by"><b>Sort By: </b></span>
       <select onChange={props.sortAction}>

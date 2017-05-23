@@ -59,6 +59,7 @@ app.route('/auth/google')
   .get(passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 // OAuth response
+/* eslint-disable comma-dangle */
 app.route('/auth/google/callback')
   .get(
     passport.authenticate('google', {
@@ -73,6 +74,6 @@ app.route('/logout')
     res.redirect('/');
   });
 
-/*eslint-disable*/
+/* eslint-disable no-console */
 app.listen(process.env.PORT || 8080);
 console.log(`Server started on port ${process.env.PORT || 8080}`);

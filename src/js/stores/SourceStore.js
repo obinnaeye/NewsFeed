@@ -1,67 +1,45 @@
 import { EventEmitter } from 'events';
-import axios from 'axios';
 
-import dispatcher from '../dispatcher/dispatcher';
+import appDispatcher from '../dispatcher/AppDispatcher';
 
 require('dotenv').config();
 
 /**
+ * @desc holds the news sources and emit change event when sources are updated
  * @class SourceStore
  * @extends {EventEmitter}
+ * @param {void}
+ * @return {void}
  */
 class SourceStore extends EventEmitter {
-  /**
-   * Creates an instance of SourceStore.
-   *
-   * @memberOf SourceStore
-   */
   constructor() {
     super();
-    this.newsAPI = 'https://newsapi.org/v1/articles';
-    this.sourceAPI = 'https://newsapi.org/v1/sources';
-    this.articles = [];
     this.sources = [];
   }
 
   /**
-   *
-   * @returns (object)
-   *
-   * @memberOf NewsStore
+   * @desc updates news sources
+   * @param {any} sources
+   * @memberof SourceStore
+   * @return {void}
    */
-  getSource() {
-    const options = [];
-    const rawSource = [];
-    axios(`${this.sourceAPI}`).then((data) => {
-      const { sources } = data.data;
-      sources.forEach((source) => {
-        rawSource.push(source);
-        options.push({ value: source.id, label: source.name, sortby: source.sortBysAvailable });
-      });
-    });
-    /* eslint-disable comma-dangle */
-    this.sources = {
-      options,
-      rawSource
-    };
+  setSource(sources) {
+    this.sources = sources;
     this.emit('sources');
   }
 
   /**
+   * @desc handles GET_SOURCES action dispatched by the dispatcher
    * @param {any} action
-   * @returns {any}
-   *
-   * @memberOf SourceStore
+   * @returns {void}
+   * @memberof SourceStore
    */
-   /* eslint-disable consistent-return */
+   /* eslint-disable */
   handleActions(action) {
     switch (action.type) {
       case 'GET_SOURCES': {
-        this.getSource();
+        this.setSource(action.sources);
         break;
-      }
-      default : {
-        return 'No Action Was Called!';
       }
     }
   }
@@ -69,5 +47,5 @@ class SourceStore extends EventEmitter {
 }
 
 const sourceStore = new SourceStore();
-dispatcher.register(sourceStore.handleActions.bind(sourceStore));
+appDispatcher.register(sourceStore.handleActions.bind(sourceStore));
 export default sourceStore;

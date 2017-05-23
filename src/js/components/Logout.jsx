@@ -2,6 +2,7 @@ import React from 'react';
 import FontAwesome from './FontAwesome';
 
 /**
+ * @desc renders the Logout component
  * @param {void}
  * @return {element} Logout-button
  */

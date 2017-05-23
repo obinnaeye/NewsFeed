@@ -1,30 +1,53 @@
+/* global expect, describe, beforeEach, it, afterEach */
+// import expect from 'expect';
+import sinon from 'sinon';
+import axios from 'axios';
+import mockCall from '../../mocks/axios';
 import NewsActions from '../../src/js/actions/NewsActions';
-import Dispatcher from '../../src/js/dispatcher/dispatcher';
+import appDispatcher from '../../src/js/dispatcher/AppDispatcher';
 
-/* eslint-disable no-undef */
-describe('NewsAction', () => {
-  let spy;
+describe('NewsActions to get news', () => {
+  let spyNews;
+  let newsStub;
+
   beforeEach(() => {
-    spy = jest.spyOn(Dispatcher, 'dispatch');
+    newsStub = sinon.stub(axios, 'get').callsFake(mockCall.get);
+    spyNews = sinon.spy(appDispatcher, 'dispatch');
   });
 
   afterEach(() => {
-    spy.mockReset();
+    spyNews.reset();
+    spyNews.restore();
+    newsStub.restore();
   });
 
-  it('should dispatch  "GET_NEWS" when getNews is called', () => {
-    NewsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });
-    const mockDispatchCall = spy.mock.calls[0][0];
-    expect(spy).toHaveBeenCalled();
-    expect(mockDispatchCall.type).toEqual('GET_NEWS');
-    expect(mockDispatchCall.obj).toEqual({ source: 'al-jazeera-english', sortby: 'top' });
+  it('Should call dispatch with correct arguments', () => {
+    NewsActions.getNews('abc-news').then(() => {
+      expect(spyNews.callCount).toBe(1);
+      expect(spyNews.firstCall.args[0].eventName).toBe('GET_NEWS');
+    });
+  });
+});
+
+describe('NewsActions to get News Sources', () => {
+  let spyNews;
+  let newsStub;
+
+  beforeEach(() => {
+    newsStub = sinon.stub(axios, 'get').callsFake(mockCall.get);
+    spyNews = sinon.spy(appDispatcher, 'dispatch');
   });
 
-  it('should dispatch  "SORT_NEWS" when sortNews is called', () => {
-    NewsActions.sortNews({ source: 'al-jazeera-english', sortby: 'top' });
-    const mockDispatchCall = spy.mock.calls[0][0];
-    expect(spy).toHaveBeenCalled();
-    expect(mockDispatchCall.type).toEqual('SORT_NEWS');
-    expect(mockDispatchCall.obj).toEqual({ source: 'al-jazeera-english', sortby: 'top' });
+  afterEach(() => {
+    spyNews.reset();
+    spyNews.restore();
+    newsStub.restore();
+  });
+
+  it('Should call dispatch with correct arguments', () => {
+    NewsActions.getSource().then(() => {
+      expect(spyNews.callCount).toBe(1);
+      expect(spyNews.firstCall.args[0].eventName).toBe('GET_SOURCES');
+    });
   });
 });

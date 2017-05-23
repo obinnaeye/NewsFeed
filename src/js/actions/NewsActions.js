@@ -1,42 +1,57 @@
-import dispatcher from '../dispatcher/dispatcher';
-/**
- * @desc actions.
- *
- * @returns {void}
- */
+import axios from 'axios';
+import appDispatcher from '../dispatcher/AppDispatcher';
+
+
+ /**
+   * @desc handles actions dispatched by dispatcher
+   * @returns {void}
+   * @param {void}
+   */
 const NewsActions = {
+
   /**
- * @desc actions that dispatches GET_NEWS
- *
- * @returns {void}
+ * @desc makes api call to newsapi.org and dispatches GET_NEWS action and news articles
+ * @returns {funcion} axios call
+ * @param {void}
+ * @memberof NewsActions
  */
-  getNews: (obj) => {
-    dispatcher.dispatch({
-      type: 'GET_NEWS',
-      obj,
-    });
+  getNews: (newsSource) => {
+    let articles = [];
+    return axios.get(`https://newsapi.org/v1/articles?apiKey=${process.env.APIKey}&source=${newsSource.source}&sortBy=${newsSource.sortBy}`)
+    .then((data) => {
+      articles = data.data.articles;
+      appDispatcher.dispatch({
+        type: 'GET_NEWS',
+        articles,
+      });
+    }).catch(error => error,
+    );
   },
 
 /**
- * @desc actions that dispatches SORT_NEWS
- *
- * @returns {void}
- */
-  sortNews: (obj) => {
-    dispatcher.dispatch({
-      type: 'SORT_NEWS',
-      obj,
-    });
-  },
-
-/**
- * @desc actions that dispatches GET_SOURCE
- *
- * @returns {void}
+ * @desc makes api call to newsapi.org and dispatches GET_SOURCES action and news sources
+ * @returns {func} axios call
+ * @param {void}
+ * @memberof NewsActions
  */
   getSource: () => {
-    dispatcher.dispatch({
-      type: 'GET_SOURCES',
+    const options = [];
+    const rawSource = [];
+    return axios('https://newsapi.org/v1/sources').then((data) => {
+      const newsSources = data.data.sources;
+      newsSources.forEach((source) => {
+        rawSource.push(source);
+        options.push({ value: source.id, label: source.name, sortBy: source.sortBysAvailable });
+      });
+      /* eslint-disable comma-dangle */
+      const sources = {
+        options,
+        rawSource
+      };
+      appDispatcher.dispatch({
+        type: 'GET_SOURCES',
+        sources,
+      });
     });
   },
 };

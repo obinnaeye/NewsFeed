@@ -2,15 +2,17 @@ import React from 'react';
 import NavBar from '../components/NavBar';
 import SourceBar from '../components/SourceBar';
 import NewsList from '../components/NewsList';
-import News from '../components/News';
 import NewsActions from '../actions/NewsActions';
-import NewsStore from '../stores/newsStore';
+import NewsStore from '../stores/NewsStore';
 import SourceStore from '../../js/stores/SourceStore';
 import Footer from '../components/Footer';
 
 /**
+ * @desc renders a page containing all components on /news page
  * @class NewsPage
+ * @param {void}
  * @extends {React.Component}
+ * @return {element} a rendered element on the DOM
  */
 class NewsPage extends React.Component {
   /**
@@ -24,8 +26,8 @@ class NewsPage extends React.Component {
       articles: [],
       sources: [],
       rawSource: [],
-      currentValue: { value: 'al-jazeera-english', label: 'Al Jazeera English', sortby: ['top', 'latest'] },
-      sortBy: ['top', 'latest'],
+      currentValue: {},
+      sortBy: [],
       currentSort: '',
     };
     this.getValue = this.getValue.bind(this);
@@ -40,31 +42,28 @@ class NewsPage extends React.Component {
    * @return {void}
    * @memberOf NewsPage
    */
-  componentWillMount() {
+  componentDidMount() {
     NewsStore.on('change', () => {
       this.setState({
-        articles: NewsStore.getArticles(),
+        articles: NewsStore.articles,
       });
     });
 
-    SourceStore.on('sources', () => {
+    SourceStore.on('change', () => {
       const { options, rawSource } = SourceStore.sources;
+      const randomIndex = Math.floor((Math.random() * (options.length - 1)));
+      const randomSource = options[randomIndex];
       this.setState({
         sources: options,
         rawSource,
-      }, () => {});
+        currentValue: randomSource,
+        sortBy: randomSource.sortBy,
+      }, () => {
+        NewsActions.getNews({ source: randomSource.value, sortBy: randomSource.sortBy[0] });
+      });
     });
-  }
 
-/**
-   * @desc the events that occur when the component has mounted
-   * @param {void}
-   * @return {void}
-   * @memberOf NewsPage
-   */
-  componentDidMount() {
     NewsActions.getSource();
-    NewsActions.getNews({ source: 'al-jazeera-english', sortby: 'top' });
   }
 
   /**
@@ -76,7 +75,7 @@ class NewsPage extends React.Component {
     if (value) {
       this.setState({
         currentValue: value,
-        sortBy: value.sortby,
+        sortBy: value.sortBy,
       }, () => { this.searchNews(); });
     }
   }
@@ -105,9 +104,9 @@ class NewsPage extends React.Component {
     const source = this.state.currentValue.value ? this.state.currentValue.value : '';
     if (source) {
       // check if sortBysAvailable is more than one and currentSort exists in state
-      const sortby = this.state.sortBy.length > 1 && this.state.currentSort ?
+      const sortBy = this.state.sortBy.length > 1 && this.state.currentSort ?
       this.state.currentSort : this.state.sortBy[0];
-      NewsActions.getNews({ source, sortby });
+      NewsActions.getNews({ source, sortBy });
     }
   }
 
@@ -119,10 +118,10 @@ class NewsPage extends React.Component {
   sortAction() {
     return (e) => {
       const source = this.state.currentValue.value;
-      const sortby = e.target.value;
-      NewsActions.sortNews({ source, sortby });
+      const sortBy = e.target.value;
+      NewsActions.getNews({ source, sortBy });
       this.setState({
-        currentSort: sortby,
+        currentSort: sortBy,
       });
     };
   }
@@ -133,30 +132,18 @@ class NewsPage extends React.Component {
    * @memberOf NewsPage
    */
   render() {
-    const news = this.state.articles;
-    const NewsComponents = news.map((item, i) => {
-      let title;
-      if (item.title.length > 60) {
-        title = `${item.title.slice(0, 56)}...`;
-      } else {
-        title = item.title;
-      }
-      const key = i;
-      return <News key={key} title={title} href={item.url} src={item.urlToImage} />;
-    });
-
     return (
       <div className="wrapper">
         <NavBar />
         <SourceBar
           sources={this.state.sources}
           value={this.state.currentValue}
-          onchange={this.getValue}
-          onclick={this.searchNews}
+          onChange={this.getValue}
+          onClick={this.searchNews}
           sorts={this.getSorts()}
           sortAction={this.sortAction()}
         />
-        <NewsList news={NewsComponents} />
+        <NewsList news={this.state.articles} />
         <Footer />
       </div>
     );
