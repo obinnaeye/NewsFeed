@@ -4,7 +4,6 @@ import HomeBody from '../components/HomeBody';
 
 /**
  * @desc renders the home page for the gistMe app
- * @param {void}
  * @return {element} index page
  */
 const Index = () =>

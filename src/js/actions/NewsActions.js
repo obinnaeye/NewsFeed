@@ -5,7 +5,6 @@ import appDispatcher from '../dispatcher/AppDispatcher';
  /**
    * @desc handles actions dispatched by dispatcher
    * @returns {void}
-   * @param {void}
    */
 const NewsActions = {
 
@@ -35,7 +34,6 @@ const NewsActions = {
  * @desc makes api call to newsapi.org
  * and dispatches GET_SOURCES action and news sources
  * @returns {function} axios call
- * @param {void}
  * @memberof NewsActions
  */
   getSource: () => {

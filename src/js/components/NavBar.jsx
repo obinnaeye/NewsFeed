@@ -3,7 +3,6 @@ import Logout from './Logout';
 
 /**
  * @desc renders the NavBar component, a navigation bar
- * @param {void}
  * @return {element} Navigations-bar
  */
 const NavBar = () =>

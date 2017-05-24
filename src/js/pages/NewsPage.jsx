@@ -10,7 +10,6 @@ import Footer from '../components/Footer';
 /**
  * @desc renders a page containing all components on /news page
  * @class NewsPage
- * @param {void}
  * @extends {React.Component}
  * @return {element} a rendered element on the DOM
  */
@@ -38,9 +37,8 @@ class NewsPage extends React.Component {
 
   /**
    * @desc the events that occur before the component mounts
-   * @param {void}
    * @return {void}
-   * @memberOf NewsPage
+   * @memberof NewsPage
    */
   componentDidMount() {
     NewsStore.on('change', () => {
