@@ -8,7 +8,6 @@ require('dotenv').config();
  * @desc holds the news artilces and emit change event when articles are updated
  * @class NewsStore
  * @extends {EventEmitter}
- * @param {void}
  * @return {void}
  */
 class NewsStore extends EventEmitter {

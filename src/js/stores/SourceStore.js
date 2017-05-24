@@ -9,7 +9,6 @@ require('dotenv').config();
  * event when sources are updated
  * @class SourceStore
  * @extends {EventEmitter}
- * @param {void}
  * @return {void}
  */
 class SourceStore extends EventEmitter {

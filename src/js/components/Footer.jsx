@@ -2,7 +2,6 @@ import React from 'react';
 
 /**
  * @desc creates a footer component used in pages
- * @param {void}
  * @return {element} footer element
  */
 const Footer = () =>
