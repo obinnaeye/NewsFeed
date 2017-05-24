@@ -5,7 +5,7 @@ import News from './News';
 
 /**
  * @desc renders news artilces unordered list of News component
- * @param {any} props
+ * @param {object} props the component props
  * @return {element} list of all articles
  */
 const NewsList = (props) => {
@@ -18,18 +18,23 @@ const NewsList = (props) => {
       title = item.title;
     }
     const key = i;
-    return <News key={key} title={title} href={item.url} src={item.urlToImage} />;
+    return (<News
+      key={key}
+      title={title}
+      href={item.url}
+      src={item.urlToImage}
+    />);
   });
   return <ul className="flex-container">{NewsComponents}</ul>;
 };
 
-/*eslint-disable*/
+
 NewsList.propTypes = {
-  news: PropTypes.array,
+  news: PropTypes.oneOfType([]),
 };
 
 NewsList.defaultProps = {
-  news: []
+  news: [],
 };
 
 module.exports = NewsList;

@@ -1,8 +1,8 @@
+/* global describe, it, expect */
 import React from 'react';
 import { mount } from 'enzyme';
 import Index from '../../src/js/pages/Index';
 
-/* eslint-disable no-undef */
 describe('Index page', () => {
   it('should exist', () => {
     expect(<Index />).toBeDefined();

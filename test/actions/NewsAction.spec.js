@@ -1,8 +1,7 @@
 /* global expect, describe, beforeEach, it, afterEach */
-// import expect from 'expect';
 import sinon from 'sinon';
 import axios from 'axios';
-import mockCall from '../../mocks/axios';
+import mockCall from '../mocks/axios';
 import NewsActions from '../../src/js/actions/NewsActions';
 import appDispatcher from '../../src/js/dispatcher/AppDispatcher';
 

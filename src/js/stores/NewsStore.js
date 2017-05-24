@@ -12,7 +12,6 @@ require('dotenv').config();
  * @return {void}
  */
 class NewsStore extends EventEmitter {
-
   constructor() {
     super();
     this.articles = [];
@@ -21,7 +20,7 @@ class NewsStore extends EventEmitter {
 
   /**
    * @desc updates news articles
-   * @param {any} articles
+   * @param {array} articles
    * @memberof NewsStore
    * @return {void}
    */
@@ -32,15 +31,18 @@ class NewsStore extends EventEmitter {
 
   /**
    * @desc handles GET_NEWS action dispatched by the dispatcher
-   * @param {any} action
+   * @param {object} action
    * @returns {void}
    * @memberof NewsStore
    */
-   /* eslint-disable */
+
   handleActions(action) {
     switch (action.type) {
       case 'GET_NEWS': {
         this.setArticles(action.articles);
+        break;
+      }
+      default: {
         break;
       }
     }

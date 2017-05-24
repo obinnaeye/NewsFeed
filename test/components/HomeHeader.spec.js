@@ -1,8 +1,8 @@
+/* global describe, it, expect */
 import React from 'react';
 import { mount } from 'enzyme';
 import HomeHeader from '../../src/js/components/HomeHeader';
 
-/* eslint-disable no-undef */
 describe('HomeHeader component', () => {
   it('should exist', () => {
     expect(<HomeHeader />).toBeDefined();

@@ -1,10 +1,11 @@
+/* global describe, it, expect, jest, beforeEach */
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import NewsList from '../../src/js/components/NewsList';
-import mockData from '../../mocks/mockData.json';
+import mockData from '../mocks/mockData.json';
 
 jest.dontMock('../../src/js/components/NewsList');
-/* eslint-disable no-undef */
+
 describe('NewsList component', () => {
   const news = mockData.data.articles;
   let wrapper;

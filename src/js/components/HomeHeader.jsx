@@ -6,7 +6,10 @@ import React from 'react';
  * @return {element} home header div
  */
 const HomeHeader = () =>
-  <nav className="navbar navbar-transparent navbar-top" role="navigation">
+  <nav
+    className="navbar navbar-transparent navbar-top"
+    role="navigation"
+  >
     <div className="container">
       <div className="navbar-header">
         <button
@@ -22,7 +25,10 @@ const HomeHeader = () =>
         <a href="/">
           <div className="logo-container">
             <div className="logo">
-              <img src="assets/img/new_logo.png" alt="gistMe Logo" />
+              <img
+                src="assets/img/new_logo.png"
+                alt="gistMe Logo"
+              />
             </div>
             <div className="brand">
                 gistMe
@@ -30,10 +36,16 @@ const HomeHeader = () =>
           </div>
         </a>
       </div>
-      <div className="collapse navbar-collapse" id="example" >
+      <div
+        className="collapse navbar-collapse"
+        id="example"
+      >
         <ul className="nav navbar-nav navbar-right">
           <li>
-            <img src="img/twitter-whisper-icon-23.png" alt="parrots" />
+            <img
+              src="img/twitter-whisper-icon-23.png"
+              alt="parrots"
+            />
           </li>
         </ul>
       </div>

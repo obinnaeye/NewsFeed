@@ -1,8 +1,8 @@
-import * as SourceStore from '../../src/js/stores/SourceStore';
+/* global describe, expect, beforeEach, jest, test */
+import SourceStore from '../../src/js/stores/SourceStore';
 import appDispatcher from '../../src/js/dispatcher/AppDispatcher';
-import mockedSources from '../../mocks/mockData.json';
+import mockedSources from '../mocks/mockData.json';
 
-/* eslint-disable no-undef, comma-dangle */
 jest.mock('../../src/js/dispatcher/AppDispatcher');
 jest.dontMock('../../src/js/stores/SourceStore');
 
@@ -10,7 +10,7 @@ describe('SourceStore', () => {
   // sample data for callback
   const mockDispatch = {
     type: 'GET_SOURCES',
-    articles: mockedSources
+    sources: mockedSources,
   };
 
   let callback;
@@ -24,13 +24,19 @@ describe('SourceStore', () => {
   });
 
   test('initializes with no data', () => {
-    const count = SourceStore.default.sources.length;
+    const count = SourceStore.sources.length;
     expect(count).toBe(0);
   });
 
   test('should call "setSource" when "GET_SOURCES" is dispatched', () => {
-    const spyStore = jest.spyOn(SourceStore.default, 'setSource');
+    const spyStore = jest.spyOn(SourceStore, 'setSource');
     callback(mockDispatch);
     expect(spyStore).toHaveBeenCalled();
+
+    const response = spyStore.mock.calls[0][0];
+    expect(response).toBeDefined();
+    expect(response.status).toEqual(200);
+    expect(response.data).toEqual(mockedSources.data);
+    expect(response.data.sources).toEqual(mockedSources.data.sources);
   });
 });

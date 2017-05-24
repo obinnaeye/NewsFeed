@@ -11,13 +11,16 @@ const NewsActions = {
 
   /**
  * @desc makes api call to newsapi.org and dispatches GET_NEWS action and news articles
- * @returns {funcion} axios call
- * @param {void}
+ * @returns {function} axios call
+ * @param {object} newsSource
  * @memberof NewsActions
  */
   getNews: (newsSource) => {
     let articles = [];
-    return axios.get(`https://newsapi.org/v1/articles?apiKey=${process.env.APIKey}&source=${newsSource.source}&sortBy=${newsSource.sortBy}`)
+    return axios.get(`https://newsapi.org/v1/articles?
+      apiKey=${process.env.APIKey}
+      &source=${newsSource.source}
+      &sortBy=${newsSource.sortBy}`)
     .then((data) => {
       articles = data.data.articles;
       appDispatcher.dispatch({
@@ -29,8 +32,9 @@ const NewsActions = {
   },
 
 /**
- * @desc makes api call to newsapi.org and dispatches GET_SOURCES action and news sources
- * @returns {func} axios call
+ * @desc makes api call to newsapi.org
+ * and dispatches GET_SOURCES action and news sources
+ * @returns {function} axios call
  * @param {void}
  * @memberof NewsActions
  */
@@ -41,12 +45,15 @@ const NewsActions = {
       const newsSources = data.data.sources;
       newsSources.forEach((source) => {
         rawSource.push(source);
-        options.push({ value: source.id, label: source.name, sortBy: source.sortBysAvailable });
+        options.push(
+          { value: source.id,
+            label: source.name,
+            sortBy: source.sortBysAvailable });
       });
-      /* eslint-disable comma-dangle */
+
       const sources = {
         options,
-        rawSource
+        rawSource,
       };
       appDispatcher.dispatch({
         type: 'GET_SOURCES',

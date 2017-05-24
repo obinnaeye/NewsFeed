@@ -1,8 +1,8 @@
+/* global describe, it, expect */
 import React from 'react';
 import { mount } from 'enzyme';
 import FontAwesome from '../../src/js/components/FontAwesome';
 
-/* eslint-disable no-undef */
 describe('FontAwesome component', () => {
   it('should exist', () => {
     expect(<FontAwesome />).toBeDefined();
@@ -18,9 +18,9 @@ describe('FontAwesome component', () => {
   });
 
   it('should accept props', () => {
-    const wrapper = mount(<FontAwesome test="props" />);
-    expect(wrapper.props().test).toEqual('props');
-    wrapper.setProps({ test: 'props2' });
-    expect(wrapper.props().test).toEqual('props2');
+    const wrapper = mount(<FontAwesome className="login" />);
+    expect(wrapper.props().className).toEqual('login');
+    wrapper.setProps({ className: 'logout' });
+    expect(wrapper.props().className).toEqual('logout');
   });
 });

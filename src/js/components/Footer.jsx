@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * @desc creates a footer component used in pages
  * @param {void}
- * @return {element}
+ * @return {element} footer element
  */
 const Footer = () =>
   <footer className="footer">
@@ -33,13 +33,22 @@ const Footer = () =>
         </ul>
       </nav>
       <div className="social-area pull-right">
-        <a className="btn btn-social btn-facebook btn-simple" href="https://www.facebook.com/obinnaeye">
+        <a
+          className="btn btn-social btn-facebook btn-simple"
+          href="https://www.facebook.com/obinnaeye"
+        >
           <i className="fa fa-facebook-square" />
         </a>
-        <a className="btn btn-social btn-twitter btn-simple" href="https://twitter.com/kingobi1">
+        <a
+          className="btn btn-social btn-twitter btn-simple"
+          href="https://twitter.com/kingobi1"
+        >
           <i className="fa fa-twitter" />
         </a>
-        <a className="btn btn-social btn-github btn-simple" href="https://github.com/andela-onnenanya">
+        <a
+          className="btn btn-social btn-github btn-simple"
+          href="https://github.com/andela-onnenanya"
+        >
           <i className="fa fa-github" />
         </a>
       </div>
