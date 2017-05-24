@@ -17,7 +17,7 @@ import Footer from '../components/Footer';
 class NewsPage extends React.Component {
   /**
    * Creates an instance of NewsPage.
-   * @param {any} props
+   * @param {object} props the component props
    * @memberOf NewsPage
    */
   constructor(props) {

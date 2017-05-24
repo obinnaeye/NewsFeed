@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 /**
  * @desc renders a bar with searchable select options of news sources and sort parameters
- * @param {any} props
+ * @param {object} props the component props
  * @return {element} search bar
  */
-/* eslint-disable react/prop-types */
+
 const SourceBar = props =>
   <div className="search-box">
     <Select
@@ -18,7 +18,13 @@ const SourceBar = props =>
       onChange={props.onChange}
       clearable
     />
-    <span className="search-btn"><button onClick={props.onClick}> Reload Headlines </button></span>
+    <span className="search-btn">
+      <button
+        onClick={props.onClick}
+      >
+        Reload Headlines
+      </button>
+    </span>
     <span>
       <span className="sort-by"><b>Sort By: </b></span>
       <select onChange={props.sortAction}>
@@ -33,11 +39,13 @@ SourceBar.defaultProps = {
   sorts: [],
 };
 
-/* eslint-disable react/forbid-prop-types */
 SourceBar.propTypes = {
-  sources: PropTypes.array,
-  value: PropTypes.object,
-  sorts: PropTypes.array,
+  sources: PropTypes.oneOfType([]),
+  value: PropTypes.oneOfType({}),
+  sorts: PropTypes.oneOfType([]),
+  sortAction: PropTypes.oneOfType(Function).isRequired,
+  onChange: PropTypes.oneOfType(Function).isRequired,
+  onClick: PropTypes.oneOfType(Function).isRequired,
 };
 
 

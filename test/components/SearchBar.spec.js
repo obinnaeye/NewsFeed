@@ -1,8 +1,8 @@
+/* global describe, it, expect, beforeEach */
 import React from 'react';
 import { mount } from 'enzyme';
 import SourceBar from '../../src/js/components/SourceBar';
 
-/* eslint-disable no-undef */
 describe('SourceBar component', () => {
   const defaultFun = demo => demo;
   let wrapper;
@@ -35,6 +35,6 @@ describe('SourceBar component', () => {
 
   it('should be able to render static contents', () => {
     const text = wrapper.find('button').text();
-    expect(text).toEqual(' Reload Headlines ');
+    expect(text).toEqual('Reload Headlines');
   });
 });

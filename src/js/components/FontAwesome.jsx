@@ -3,14 +3,17 @@ import PropTypes from 'prop-types';
 
 /**
  * @desc creates an icon from FontAwesome
- * @param {any} props
- * @return {element} icon
+ * @param {object} props the component props
+ * @return {element} icon font awesome icon
  */
 const FontAwesome = props => <i className={props.name} aria-hidden="true" />;
 
-/* eslint-disable react/require-default-props */
 FontAwesome.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
+};
+
+FontAwesome.defaultProps = {
+  name: 'google-login',
 };
 
 export default FontAwesome;

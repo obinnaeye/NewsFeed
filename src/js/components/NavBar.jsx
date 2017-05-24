@@ -7,7 +7,10 @@ import Logout from './Logout';
  * @return {element} Navigations-bar
  */
 const NavBar = () =>
-  <nav className="navbar navbar-transparent navbar-top header" role="navigation">
+  <nav
+    className="navbar navbar-transparent navbar-top header"
+    role="navigation"
+  >
     <div className="container">
       <div className="navbar-header">
         <button
@@ -23,7 +26,10 @@ const NavBar = () =>
         <a href="/">
           <div className="logo-container">
             <div className="logo">
-              <img src="assets/img/new_logo.png" alt="gistMe Logo" />
+              <img
+                src="assets/img/new_logo.png"
+                alt="gistMe Logo"
+              />
             </div>
             <div className="brand">
                 gistMe
@@ -34,7 +40,8 @@ const NavBar = () =>
       <div className="collapse navbar-collapse" id="example" >
         <ul className="nav navbar-nav navbar-right">
           <img
-            src="img/globe-earth-animation.gif" alt="background"
+            src="img/globe-earth-animation.gif"
+            alt="background"
           />
           <Logout />
         </ul>

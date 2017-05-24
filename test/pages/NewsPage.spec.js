@@ -1,11 +1,9 @@
-/*eslint-disable */
+/* global describe, it, expect */
 import React from 'react';
-import { mount, shallow } from 'enzyme';   
-import NewsActions from '../../src/js/actions/NewsActions';
+import { mount, shallow } from 'enzyme';
 import NewsPage from '../../src/js/pages/NewsPage';
-import mockData from '../../mocks/mockData.json';
+import mockData from '../mocks/mockData.json';
 
-/* eslint-disable no-undef */
 describe('NewsPage component', () => {
   const initialSource = [];
   const sources = mockData.data.articles;

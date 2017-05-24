@@ -5,7 +5,8 @@ import appDispatcher from '../dispatcher/AppDispatcher';
 require('dotenv').config();
 
 /**
- * @desc holds the news sources and emit change event when sources are updated
+ * @desc holds the news sources and emit change
+ * event when sources are updated
  * @class SourceStore
  * @extends {EventEmitter}
  * @param {void}
@@ -19,7 +20,7 @@ class SourceStore extends EventEmitter {
 
   /**
    * @desc updates news sources
-   * @param {any} sources
+   * @param {array} sources news sources
    * @memberof SourceStore
    * @return {void}
    */
@@ -30,15 +31,17 @@ class SourceStore extends EventEmitter {
 
   /**
    * @desc handles GET_SOURCES action dispatched by the dispatcher
-   * @param {any} action
+   * @param {object} action the action dispatched by dispatcher
    * @returns {void}
    * @memberof SourceStore
    */
-   /* eslint-disable */
   handleActions(action) {
     switch (action.type) {
       case 'GET_SOURCES': {
         this.setSource(action.sources);
+        break;
+      }
+      default: {
         break;
       }
     }
