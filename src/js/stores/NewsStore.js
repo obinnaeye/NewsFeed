@@ -19,7 +19,7 @@ class NewsStore extends EventEmitter {
 
   /**
    * @desc updates news articles
-   * @param {array} articles
+   * @param {array} articles the articles returned by GET_NEWS actions
    * @memberof NewsStore
    * @return {void}
    */
@@ -30,7 +30,7 @@ class NewsStore extends EventEmitter {
 
   /**
    * @desc handles GET_NEWS action dispatched by the dispatcher
-   * @param {object} action
+   * @param {object} action he action dispatched by dispatcher
    * @returns {void}
    * @memberof NewsStore
    */

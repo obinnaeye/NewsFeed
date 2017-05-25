@@ -11,7 +11,7 @@ const NewsActions = {
   /**
  * @desc makes api call to newsapi.org and dispatches GET_NEWS action and news articles
  * @returns {function} axios call
- * @param {object} newsSource
+ * @param {object} newsSource the source of the news
  * @memberof NewsActions
  */
   getNews: (newsSource) => {
