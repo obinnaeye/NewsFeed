@@ -4,6 +4,7 @@ import axios from 'axios';
 import mockCall from '../mocks/axios';
 import NewsActions from '../../src/js/actions/NewsActions';
 import appDispatcher from '../../src/js/dispatcher/AppDispatcher';
+import mockData from '../mocks/mockData.json';
 
 describe('NewsActions to get news', () => {
   let spyNews;
@@ -23,7 +24,8 @@ describe('NewsActions to get news', () => {
   it('Should call dispatch with correct arguments', () => {
     NewsActions.getNews('abc-news').then(() => {
       expect(spyNews.callCount).toBe(1);
-      expect(spyNews.firstCall.args[0].eventName).toBe('GET_NEWS');
+      expect(spyNews.firstCall.args[0].type).toBe('GET_NEWS');
+      expect(spyNews.firstCall.args[0].articles).toBe(mockData);
     });
   });
 });
@@ -46,7 +48,8 @@ describe('NewsActions to get News Sources', () => {
   it('Should call dispatch with correct arguments', () => {
     NewsActions.getSource().then(() => {
       expect(spyNews.callCount).toBe(1);
-      expect(spyNews.firstCall.args[0].eventName).toBe('GET_SOURCES');
+      expect(spyNews.firstCall.args[0].type).toBe('GET_SOURCES');
+      expect(spyNews.firstCall.args[0].sources).toBe(mockData);
     });
   });
 });
