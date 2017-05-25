@@ -65,7 +65,7 @@ class NewsPage extends React.Component {
   }
 
   /**
-   * @param {object} value
+   * @param {object} value the value in the select element
    * @memberOf NewsPage
    * @return {void}
    */
