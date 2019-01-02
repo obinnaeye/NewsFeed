@@ -2,8 +2,9 @@
   "name": "newsfeed",
   "version": "0.0.0",
   "description": "A simple news feed app that displays news headlines from top news sites.",
-  "main": "webpack.config.js",
+  "main": "server.js",
   "dependencies": {
+    "axios": "^0.16.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.2.0",
     "babel-plugin-add-module-exports": "^0.1.2",
@@ -12,26 +13,94 @@
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
-    "babel-preset-stage-0": "^6.3.13",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "connect-mongo": "^1.3.2",
+    "create-react-class": "^15.5.2",
+    "css-loader": "^0.28.1",
+    "dotenv": "^4.0.0",
+    "dotenv-webpack": "^1.4.5",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "file-loader": "^0.11.1",
     "flux": "^2.1.1",
     "history": "^1.17.0",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6",
+    "image-webpack-loader": "^3.3.0",
+    "mongoose": "^4.9.5",
+    "node-sass": "^4.5.2",
+    "passport": "^0.3.2",
+    "passport-google-oauth": "^1.0.0",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-google-login": "^2.8.5",
     "react-router": "^1.0.3",
-    "webpack": "^1.12.9",
+    "react-select": "^1.0.0-rc.3",
+    "sass-loader": "^6.0.3",
+    "sinon": "^2.3.0",
+    "style-loader": "^0.17.0",
+    "webpack": "^2.4.0",
     "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {
+    "babel-jest": "^19.0.0",
+    "coveralls": "^2.13.1",
+    "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-config-airbnb-base": "^11.1.3",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3"
+    "eslint-plugin-react": "^6.10.3",
+    "jest": "^19.0.2",
+    "jest-cli": "^19.0.2",
+    "jest-css-modules": "^1.1.0",
+    "jest-enzyme": "^3.0.1",
+    "nyc": "^10.3.2",
+    "react-addons-test-utils": "^15.5.1",
+    "react-test-renderer": "^15.5.4"
+  },
+  "jest": {
+    "verbose": true,
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "collectCoverageFrom": [
+      "**/src/**.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/src/configs/**",
+      "!**/src/js/pages/NewsPageEntry.jsx",
+      "!**/src/js/pages/IndexEntry.jsx",
+      "!**/src/App.js"
+    ],
+    "transform": {
+      ".scss": "<rootDir>/node_modules/jest-css-modules",
+      ".*": "<rootDir>/node_modules/babel-jest"
+    }
   },
   "scripts": {
+    "watch": "./node_modules/.bin/webpack -d --watch",
+    "build": "./node_modules/.bin/webpack",
+    "deploy": "npm run build && npm start",
+    "postinstall": "./node_modules/.bin/webpack",
     "dev": "webpack-dev-server --content-base src --inline --hot",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc jest",
+    "start": "node server.js",
+    "coverage": "jest --coverage"
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "exclude": [
+      "**/*.test.jsx",
+      "public"
+    ],
+    "extension": [
+      ".jsx",
+      ".es6"
+    ],
+    "sourceMap": false,
+    "instrument": false
   },
   "repository": {
     "type": "git",
@@ -42,7 +111,7 @@
     "newsfeed"
   ],
   "author": "Nnenanya O.K",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/andela-onnenanya/newsfeed/issues"
   },

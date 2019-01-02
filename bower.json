@@ -1,0 +1,24 @@
+{
+  "name": "newsfeed",
+  "description": "A simple news feed app that displays news headlines from top news sites.",
+  "main": "server.js",
+  "authors": [
+    "Nnenanya O.K"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "news",
+    "newsfeed"
+  ],
+  "homepage": "https://github.com/andela-onnenanya/newsfeed",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "components-font-awesome": "^4.7.0"
+  }
+}
